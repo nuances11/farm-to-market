@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" style="height: 100%">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Umega App - Register</title>
+    <title>Register</title>
     <!-- PACE-->
     <link rel="stylesheet" type="text/css" href="assets/PACE/themes/blue/pace-theme-flash.css">
     <script type="text/javascript" src="assets/PACE/pace.min.js"></script>
@@ -13,8 +13,15 @@
     <link rel="stylesheet" type="text/css" href="assets/bootstrap/dist/css/bootstrap.min.css">
     <!-- Fonts-->
     <link rel="stylesheet" type="text/css" href="assets/themify-icons/themify-icons.css">
+    <!-- Malihu Scrollbar-->
+    <link rel="stylesheet" type="text/css" href="assets/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css">
+    <!-- Animo.js-->
+    <link rel="stylesheet" type="text/css" href="assets/animo.js/animate-animo.min.css">
+    <!-- Bootstrap Progressbar-->
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
     <!-- Primary Style-->
     <link rel="stylesheet" type="text/css" href="build/css/second-layout.css">
+    <link rel="stylesheet" type="text/css" href="custom/index.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!-- WARNING: Respond.js doesn't work if you view the page via file://-->
     <!--[if lt IE 9]>
@@ -23,76 +30,137 @@
     <![endif]-->
 </head>
 
-<body style="background-image: url(build/images/backgrounds/18.jpg)" class="body-bg-full">
-    <div class="container page-container">
-        <div class="page-content">
-            <div class="logo">
-                <i class="ti-underline"></i>
-            </div>
-            <form id="form-register" class="form-horizontal">
-                <div class="form-group" id="username-input">
-                    <div class="col-xs-12">
-                        <input type="text" placeholder="Username" class="form-control" name="username" id="username">
-                    </div>
+<body data-sidebar-color="sidebar-light" class="sidebar-light">
+    <!-- Header start-->
+    <header>
+        <a href="index.php" class="brand pull-left">
+            <h2>UMEGA</h2>
+        </a>
+        <a href="javascript:;" role="button" class="hamburger-menu pull-left visible-xs">
+            <span></span>
+        </a>
+        <ul class="notification-bar list-inline pull-right" style="vertical-align:center">
+            <li class="custom-menu">
+                <a href="index.php" class="header-icon">
+                    <i class="glyphicon glyphicon-log-in"></i>&nbsp;&nbsp; Login</a>
+            </li>
+        </ul>
+    </header>
+    <div class="container">
+        <div class="register-container">
+            <div class="widget">
+                <div class="widget-heading">
+                    <h3 class="widget-title">Register</h3>
                 </div>
-                <div class="form-group" id="email-input">
-                    <div class="col-xs-12">
-                        <input type="text" placeholder="Email" class="form-control" name="email" id="email">
-                    </div>
-                </div>
-                <div class="form-group" id="password-input">
-                    <div class="col-xs-12">
-                        <input type="password" placeholder="Password" class="form-control" name="password" id="password">
-                    </div>
-                </div>
-                <div class="form-group" id="cpassword-input">
-                    <div class="col-xs-12">
-                        <input type="password" placeholder="Confirm Password" class="form-control" name="cpassword" id="cpassword">
-                    </div>
-                </div>
-                <div class="form-group" id="birthday-input">
-                <div class="col-xs-12">
-                    <label class="checkbox-muted text-muted">Birthday</label>
-                </div>
-                    <div class="col-xs-4">
-                    <select class="form-control">
-                        <option value="">Month</option>
-                    </select>
-                    </div>
-                    <div class="col-xs-4">
-                    <select class="form-control">
-                        <option value="">Day</option>
-                    </select>
-                    </div>
-                    <div class="col-xs-4">
-                    <select class="form-control">
-                        <option value="">Year</option>
-                    </select>
-                    </div>
-                </div>
-                <div class="form-group" id="remember-input">
-                    <div class="col-xs-12">
-                        <div style="margin-bottom: 7px" class="checkbox-inline checkbox-custom">
-                            <input id="exampleCheckboxAgree" type="checkbox" value="remember" name="remember" id="remember">
-                            <label for="exampleCheckboxAgree" class="checkbox-muted text-muted">Agree the terms and policy</label>
+                <div class="widget-body">
+                    <form id="registration-form">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="username">Username:</label>
+                                    <input type="text" class="form-control" id="username" name="username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="pasword">Password:</label>
+                                    <input type="password" class="form-control" id="password" name="password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cpasword">Confirm Password:</label>
+                                    <input type="password" class="form-control" id="cpassword" name="cpassword">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input type="email" class="form-control" id="email" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="gender">Gender:</label>
+                                    <select class="form-control" id="gender" name="gender">
+                                        <option value="">Please choose...</option>
+                                    </select>
+                                </div>
+                                <label for="gender">Gender:</label>
+                                <div class="form-group">
+                                    <div class="col-xs-4">
+                                        <select class="form-control" id="gender" name="gender">
+                                            <option value="">Month</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" id="gender" name="gender">
+                                            <option value="">Day</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" id="gender" name="gender">
+                                            <option value="">Year</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="contact">Contact Number:</label>
+                                    <input type="text" class="form-control" id="contact" name="email">
+                                </div>
+                                <h3>Address</h3>
+                                <div class="form-group">
+                                    <label for="street">Street:</label>
+                                    <input type="text" class="form-control" id="street" name="street">
+                                </div>
+                                <div class="form-group">
+                                    <label for="barangay">Barangay:</label>
+                                    <input type="text" class="form-control" id="barangay" name="barangay">
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">City:</label>
+                                    <input type="text" class="form-control" id="city" name="city">
+                                </div>
+                                <div class="form-group">
+                                    <label for="province">Province:</label>
+                                    <input type="text" class="form-control" id="province" name="province">
+                                </div>
+                                <div class="form-group">
+                                    <div>
+                                        <div class="radio-custom radio-inline">
+                                            <input id="rdbWatchable" type="radio" name="user_type" value="watchable">
+                                            <label for="rdbWatchable">Farmer</label>
+                                        </div>
+                                        <div class="radio-custom radio-inline">
+                                            <input id="rdbBest" type="radio" name="user_type" value="best">
+                                            <label for="rdbBest">Restaurant Owner</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
                 </div>
-                <button type="submit" class="btn-lg btn btn-primary btn-rounded btn-block">Sign up</button>
-            </form>
-            <hr>
-            <div class="clearfix">
-                <p class="text-muted mb-0 pull-left">Already have an account? </p>
-                <a href="index.php" class="inline-block pull-right">Sign In</a>
             </div>
+            <hr>
+            <input type="submit" class="btn btn-success" value="Register">
+            <div class="pull-right">
+                Already have an account ?
+                <a href="index.php">Login</a>
+            </div>
+            </form>
         </div>
+    </div>
+    </div>
     </div>
     <!-- jQuery-->
     <script type="text/javascript" src="assets/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap JavaScript-->
     <script type="text/javascript" src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Malihu Scrollbar-->
+    <script type="text/javascript" src="assets/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- Animo.js-->
+    <script type="text/javascript" src="assets/animo.js/animo.min.js"></script>
+    <!-- Bootstrap Progressbar-->
+    <script type="text/javascript" src="assets/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- jQuery Easy Pie Chart-->
+    <script type="text/javascript" src="assets/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
     <!-- Custom JS-->
-    <script type="text/javascript" src="custom/index.js"></script>
+    <script type="text/javascript" src="build/js/second-layout/app.js"></script>
+    <script type="text/javascript" src="build/js/second-layout/demo.js"></script>
 </body>
 
 </html>

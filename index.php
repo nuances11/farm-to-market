@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" style="height: 100%">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Index</title>
     <!-- PACE-->
     <link rel="stylesheet" type="text/css" href="assets/PACE/themes/blue/pace-theme-flash.css">
     <script type="text/javascript" src="assets/PACE/pace.min.js"></script>
@@ -13,8 +13,15 @@
     <link rel="stylesheet" type="text/css" href="assets/bootstrap/dist/css/bootstrap.min.css">
     <!-- Fonts-->
     <link rel="stylesheet" type="text/css" href="assets/themify-icons/themify-icons.css">
+    <!-- Malihu Scrollbar-->
+    <link rel="stylesheet" type="text/css" href="assets/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css">
+    <!-- Animo.js-->
+    <link rel="stylesheet" type="text/css" href="assets/animo.js/animate-animo.min.css">
+    <!-- Bootstrap Progressbar-->
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
     <!-- Primary Style-->
     <link rel="stylesheet" type="text/css" href="build/css/second-layout.css">
+    <link rel="stylesheet" type="text/css" href="custom/index.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!-- WARNING: Respond.js doesn't work if you view the page via file://-->
     <!--[if lt IE 9]>
@@ -23,40 +30,45 @@
     <![endif]-->
 </head>
 
-<body style="background-image: url(build/images/backgrounds/18.jpg)" class="body-bg-full">
-    <div class="container page-container">
-        <div class="page-content">
-            <div class="logo">
-                <i class="ti-underline"></i>
-            </div>
-            <form method="get" action="index.html" class="form-horizontal">
-                <div class="form-group">
-                    <div class="col-xs-12">
-                        <input type="text" placeholder="Username" class="form-control">
-                    </div>
+<body data-sidebar-color="sidebar-light" class="sidebar-light">
+    <!-- Header start-->
+    <header>
+        <a href="index.php" class="brand pull-left">
+            <h2>UMEGA</h2>
+        </a>
+        <a href="javascript:;" role="button" class="hamburger-menu pull-left visible-xs">
+            <span></span>
+        </a>
+        <ul class="notification-bar list-inline pull-right" style="vertical-align:center">
+            <li class="custom-menu">
+                <a href="register.php" class="header-icon">
+                    <i class="glyphicon glyphicon-pencil"></i>&nbsp;&nbsp; Register</a>
+            </li>
+        </ul>
+    </header>
+    <div class="container">
+        <div class="login-container">
+            <div class="widget">
+                <div class="widget-heading">
+                    <h3 class="widget-title">Login</h3>
                 </div>
-                <div class="form-group">
-                    <div class="col-xs-12">
-                        <input type="password" placeholder="Password" class="form-control">
-                    </div>
-                </div>
-                <!-- <div class="form-group">
-                    <div class="col-xs-12">
-                        <div class="checkbox-inline checkbox-custom pull-left">
-                            <input id="exampleCheckboxRemember" type="checkbox" value="remember">
-                            <label for="exampleCheckboxRemember" class="checkbox-muted text-muted">Remember me</label>
+                <div class="widget-body">
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control" id="username" name="username">
                         </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="text" class="form-control" id="password" name="password">
+                        </div>
+                        <hr>
+                        <input type="submit" class="btn btn-primary" value="Login">
                         <div class="pull-right">
-                            <a href="forgot.html" class="inline-block form-control-static">Forgot a Passowrd?</a>
+                            Don't have account yet ? <a href="register.php">Register</a>
                         </div>
-                    </div>
-                </div> -->
-                <button type="submit" class="btn-lg btn btn-primary btn-rounded btn-block">Sign in</button>
-            </form>
-            <hr>
-            <div class="clearfix">
-                <p class="text-muted mb-0 pull-left">Want new account?</p>
-                <a href="register.php" class="inline-block pull-right">Sign Up</a>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -64,8 +76,17 @@
     <script type="text/javascript" src="assets/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap JavaScript-->
     <script type="text/javascript" src="assets/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Malihu Scrollbar-->
+    <script type="text/javascript" src="assets/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- Animo.js-->
+    <script type="text/javascript" src="assets/animo.js/animo.min.js"></script>
+    <!-- Bootstrap Progressbar-->
+    <script type="text/javascript" src="assets/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- jQuery Easy Pie Chart-->
+    <script type="text/javascript" src="assets/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
     <!-- Custom JS-->
-    <script type="text/javascript" src="custom/index.js"></script>
+    <script type="text/javascript" src="build/js/second-layout/app.js"></script>
+    <script type="text/javascript" src="build/js/second-layout/demo.js"></script>
 </body>
 
 </html>

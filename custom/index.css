@@ -1,0 +1,13 @@
+.login-container {
+    max-width: 500px;
+    width: 100%;
+    padding-top: 100px;
+    margin: 0 auto;
+}
+
+.register-container {
+    max-width: 1000px;
+    width: 100%;
+    padding-top: 100px;
+    margin: 0 auto;
+}
