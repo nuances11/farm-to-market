@@ -4,7 +4,9 @@
         <div class="pull-left">
             <h4 class="mt-0 mb-5">Dashboard</h4>
             <ol class="breadcrumb mb-0">
-                <li><a href="index.php">Home</a></li>
+                <li>
+                    <a href="index.php">Home</a>
+                </li>
                 <li class="active">Add Product</li>
             </ol>
         </div>
@@ -122,7 +124,26 @@
                         </div>
                     </div>
                     <div id="image" role="tabpanel" class="tab-pane">
-                        image upload needed
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="fileInput">File input</label>
+                                        <input id="fileInput" type="file" data-buttonname="btn-outline btn-primary" data-iconname="ti-zip" class="filestyle" tabindex="-1"
+                                            style="position: absolute; clip: rect(0px 0px 0px 0px);">
+                                        <div class="bootstrap-filestyle input-group">
+                                            <input type="text" class="form-control " placeholder="" disabled="">
+                                            <span class="group-span-filestyle input-group-btn" tabindex="0">
+                                                <label for="fileInput" class="btn btn-outline btn-primary ">
+                                                    <span class="icon-span-filestyle ti-zip"></span>
+                                                    <span class="buttonText">Choose file</span>
+                                                </label>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>

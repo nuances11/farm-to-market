@@ -83,6 +83,8 @@
                                 </div>
                             </li>
                         </ul>
+                        <a href="edit-profile.php" class="btn btn-raised btn-block btn-success">
+                            <i class="glyphicon glyphicon-pencil"></i> &nbsp;&nbsp;Edit Profile</a>
                     </div>
                 </div>
                 <div class="widget clear">

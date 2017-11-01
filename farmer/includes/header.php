@@ -11,58 +11,44 @@
     <script type="text/javascript" src="<?= BASE_URL ?>assets/PACE/pace.min.js"></script>
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/bootstrap/dist/css/bootstrap.min.css">
     <!-- Fonts-->
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/themify-icons/themify-icons.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/themify-icons/themify-icons.css">
     <!-- Malihu Scrollbar-->
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css">
     <!-- Animo.js-->
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/animo.js/animate-animo.min.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/animo.js/animate-animo.min.css">
     <!-- Bootstrap Progressbar-->
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
     <!-- Toastr-->
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/toastr/toastr.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/toastr/toastr.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/toastr/toastr.min.css"> -->
     <!-- SpinKit-->
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/SpinKit/css/spinners/7-three-bounce.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/SpinKit/css/spinners/7-three-bounce.css">
     <!-- Jvector Map-->
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/jvectormap/jquery-jvectormap-2.0.3.css">
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/jvectormap/jquery-jvectormap-2.0.3.css">
     <!-- Morris Chart-->
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/morris.js/morris.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/morris.js/morris.css">
     <!-- DataTables-->
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/datatables.net-bs/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/datatables.net-bs/css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/datatables.net-colreorder-bs/css/colReorder.bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/datatables.net-colreorder-bs/css/colReorder.bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/datatables.net-responsive-bs/css/responsive.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/datatables.net-responsive-bs/css/responsive.bootstrap.min.css">
     <!-- Weather Icons-->
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/weather-icons/css/weather-icons-wind.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/weather-icons/css/weather-icons-wind.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/weather-icons/css/weather-icons.min.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/weather-icons/css/weather-icons.min.css">
     <!-- FullCalendar-->
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/fullcalendar/dist/fullcalendar.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/fullcalendar/dist/fullcalendar.min.css">
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/fullcalendar/dist/fullcalendar.print.css" media="print">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/fullcalendar/dist/fullcalendar.print.css" media="print">
     <!-- jQuery MiniColors-->
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/jquery-minicolors/jquery.minicolors.css">
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/jquery-minicolors/jquery.minicolors.css">
     <!-- Bootstrap Date Range Picker-->
-    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/bootstrap-daterangepicker/daterangepicker.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/bootstrap-daterangepicker/daterangepicker.css">
     <!-- Primary Style-->
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>build/css/second-layout.css">
+    <!-- DataTables-->
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/datatables.net-bs/css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/datatables.net-colreorder-bs/css/colReorder.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/datatables.net-responsive-bs/css/responsive.bootstrap.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!-- WARNING: Respond.js doesn't work if you view the page via file://--> 
     <!--[if lt IE 9]>
@@ -74,19 +60,8 @@
     <!-- Header start-->
     <header>
       <div class="search-bar closed">
-        <form>
-          <div class="input-group input-group-lg">
-            <input type="text" placeholder="Search for..." class="form-control"><span class="input-group-btn">
-              <button type="button" class="btn btn-default search-bar-toggle"><i class="ti-close"></i></button></span>
-          </div>
-        </form>
       </div><a href="index.php" class="brand pull-left">
-        <h2>UMEGA</h2></a><a href="javascript:;" role="button" class="hamburger-menu pull-left visible-xs"><span></span></a>
-      <form class="search-form pull-left hidden-xs">
-        <div class="form-group has-feedback mb-0">
-          <input type="text" aria-describedby="inputSearchFor" placeholder="Search for..." style="width: 200px" class="form-control rounded"><span aria-hidden="true" class="ti-search form-control-feedback"></span><span id="inputSearchFor" class="sr-only">(default)</span>
-        </div>
-      </form>
+        <h2><img src="<?= BASE_URL ?>build/images/agripreneur-02.png" height="50px" width="50px"></h2></a><a href="javascript:;" role="button" class="hamburger-menu pull-left visible-xs"><span></span></a>
       <ul class="notification-bar list-inline pull-right">
         <li class="visible-xs"><a href="javascript:;" role="button" class="header-icon search-bar-toggle"><i class="ti-search"></i></a></li>
         <li class="visible-lg"><a href="javascript:;" role="button" class="header-icon fullscreen-toggle"><i class="ti-fullscreen"></i></a></li>
@@ -167,12 +142,14 @@
         </div>
         <ul class="list-unstyled navigation mb-0">
           <li class="sidebar-header pt-0">Main</li>
-          <li><a href="index.php" class="active bubble"><i class="ti-home"></i> Dashboard</a></li>
+          <li><a href="index.php"><i class="ti-home"></i> Dashboard</a></li>
           <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse2" aria-expanded="false" aria-controls="collapse2" class="collapsed"><i class="ti-shopping-cart"></i> E-commerce</a>
             <ul id="collapse2" class="list-unstyled collapse">
               <li><a href="add-product.php">Add Product</a></li>
               <li><a href="product-list.php">Product list</a></li>
             </ul>
+          </li>
+          <li class="panel"><a href="customer.php"><i class="ti-layout-grid2"></i> Customers</a>
           </li>
         </ul>
       </aside>
