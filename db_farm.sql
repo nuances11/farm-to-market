@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2017 at 02:59 PM
+-- Generation Time: Nov 04, 2017 at 01:10 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -33,16 +33,20 @@ CREATE TABLE `tbl_user` (
   `email` varchar(255) NOT NULL,
   `user_type` varchar(255) NOT NULL,
   `first_name` varchar(255) NOT NULL,
+  `middle_name` varchar(255) NOT NULL,
   `last_name` varchar(255) NOT NULL,
   `birthday` varchar(255) NOT NULL,
   `gender` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
   `picture` varchar(255) NOT NULL,
+  `add_street` varchar(255) NOT NULL,
+  `add_barangay` varchar(255) NOT NULL,
+  `add_city` varchar(255) NOT NULL,
+  `add_province` varchar(255) NOT NULL,
   `session_id` varchar(255) NOT NULL,
   `md5_hash` varchar(255) NOT NULL,
-  `timestamp_created` datetime NOT NULL,
-  `timestamp_update` datetime NOT NULL,
+  `timestamp_created` varchar(255) NOT NULL,
+  `timestamp_update` varchar(255) NOT NULL,
   `active` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
