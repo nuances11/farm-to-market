@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="assets/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
     <!-- Primary Style-->
     <link rel="stylesheet" type="text/css" href="build/css/second-layout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.min.css" />
     <link rel="stylesheet" type="text/css" href="custom/index.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!-- WARNING: Respond.js doesn't work if you view the page via file://-->
@@ -56,80 +57,127 @@
                     <form id="registration-form">
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group">
+                                <h3>Account Information</h3>
+                                <hr>
+                                <div class="form-group input-usertype">
+                                    <div>
+                                        <div class="radio-custom radio-inline">
+                                            <input id="user_famer" type="radio" name="user_type" value="Farmer">
+                                            <label for="user_famer">Farmer</label>
+                                        </div>
+                                        <div class="radio-custom radio-inline">
+                                            <input id="user_owner" type="radio" name="user_type" value="Owner">
+                                            <label for="user_owner">Restaurant Owner</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group input-username">
                                     <label for="username">Username:</label>
                                     <input type="text" class="form-control" id="username" name="username">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group input-password">
                                     <label for="pasword">Password:</label>
                                     <input type="password" class="form-control" id="password" name="password">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group input-cpassword">
                                     <label for="cpasword">Confirm Password:</label>
                                     <input type="password" class="form-control" id="cpassword" name="cpassword">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group input-email">
                                     <label for="email">Email:</label>
                                     <input type="email" class="form-control" id="email" name="email">
                                 </div>
-                                <div class="form-group">
-                                    <label for="gender">Gender:</label>
-                                    <select class="form-control" id="gender" name="gender">
-                                        <option value="">Please choose...</option>
-                                    </select>
+                                <h3>Personal Information</h3>
+                                <hr>
+                                <div class="form-group input-fname">
+                                    <label for="fname">First Name:</label>
+                                    <input type="text" class="form-control" id="fname" name="fname">
                                 </div>
-                                <label for="gender">Gender:</label>
-                                <div class="form-group">
-                                    <div class="col-xs-4">
-                                        <select class="form-control" id="gender" name="gender">
-                                            <option value="">Month</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <select class="form-control" id="gender" name="gender">
-                                            <option value="">Day</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-xs-4">
-                                        <select class="form-control" id="gender" name="gender">
-                                            <option value="">Year</option>
-                                        </select>
-                                    </div>
+                                <div class="form-group input-mname">
+                                    <label for="mname">Middle Name:</label>
+                                    <input type="text" class="form-control" id="mname" name="mname">
+                                </div>
+                                <div class="form-group input-lname">
+                                    <label for="lname">Last Name:</label>
+                                    <input type="text" class="form-control" id="lname" name="lname">
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="form-group">
+                                <div class="form-group input-gender">
+                                    <label for="gender">Gender:</label>
+                                    <select class="form-control" id="gender" name="gender">
+                                        <option value="">Please choose...</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                    </select>
+                                </div>
+                                <label for="gender">Birthday:</label>
+                                <div class="form-group input-birthday">
+                                    <div class="col-xs-4">
+                                        <select class="form-control" id="month" name="month">
+                                            <option value="">Month</option>
+                                            <?php
+                                                for($m=1; $m<=12; ++$m){
+                                                    ?>
+                                                    <option value="<?= $m ?>"><?= date('F', mktime(0, 0, 0, $m, 1)) ?></option>
+                                                    <?php
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" id="day" name="day">
+                                            <option value="">Day</option>
+                                            <?php
+                                                for($m=1; $m<=31; ++$m){
+                                                    ?>
+                                                    <option value="<?= $m ?>"><?= $m ?></option>
+                                                    <?php
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <select class="form-control" id="year" name="year">
+                                            <option value="">Year</option>
+                                            <?php
+                                                $year = date("Y");
+                                                $newYear = $year - 99;
+                                                $limit = $year - 18;
+                                                for($m = $limit; $m>=$newYear; --$m){
+                                                    ?>
+                                                    <option value="<?= $m ?>"><?= $m ?></option>
+                                                    <?php
+                                                }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group input-contact">
                                     <label for="contact">Contact Number:</label>
-                                    <input type="text" class="form-control" id="contact" name="email">
+                                    <input type="text" class="form-control" id="contact" name="contact">
                                 </div>
                                 <h3>Address</h3>
-                                <div class="form-group">
+                                <hr>
+                                <div class="form-group  input-street">
                                     <label for="street">Street:</label>
                                     <input type="text" class="form-control" id="street" name="street">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group input-barangay">
                                     <label for="barangay">Barangay:</label>
                                     <input type="text" class="form-control" id="barangay" name="barangay">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group input-city">
                                     <label for="city">City:</label>
                                     <input type="text" class="form-control" id="city" name="city">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group input-province">
                                     <label for="province">Province:</label>
                                     <input type="text" class="form-control" id="province" name="province">
                                 </div>
-                                <div class="form-group">
-                                    <div>
-                                        <div class="radio-custom radio-inline">
-                                            <input id="rdbWatchable" type="radio" name="user_type" value="watchable">
-                                            <label for="rdbWatchable">Farmer</label>
-                                        </div>
-                                        <div class="radio-custom radio-inline">
-                                            <input id="rdbBest" type="radio" name="user_type" value="best">
-                                            <label for="rdbBest">Restaurant Owner</label>
-                                        </div>
-                                    </div>
+                                <div class="checkbox-custom input-terms">
+                                    <input id="user_terms" type="checkbox" name="terms" value="1">
+                                    <label for="user_terms">I Agree to <a href="#">Terms of Service</a></label>
                                 </div>
                             </div>
                         </div>
@@ -140,7 +188,7 @@
             <div class="pull-right">
                 Already have an account ?
                 <a href="index.php">Login</a>
-            </div>
+            </div><br><br><br>
             </form>
         </div>
     </div>
@@ -161,6 +209,8 @@
     <!-- Custom JS-->
     <script type="text/javascript" src="build/js/second-layout/app.js"></script>
     <script type="text/javascript" src="build/js/second-layout/demo.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js"></script>
+    <script type="text/javascript" src="custom/index.js"></script>
 </body>
 
 </html>
