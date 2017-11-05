@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="assets/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css">
     <!-- Primary Style-->
     <link rel="stylesheet" type="text/css" href="build/css/second-layout.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.min.css" />
     <link rel="stylesheet" type="text/css" href="custom/index.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!-- WARNING: Respond.js doesn't work if you view the page via file://-->
@@ -54,11 +55,11 @@
                 </div>
                 <div class="widget-body">
                     <form id="login-form">
-                        <div class="form-group">
+                        <div class="form-group input-username">
                             <label for="username">Username:</label>
                             <input type="text" class="form-control" id="username" name="username">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group input-password">
                             <label for="password">Password:</label>
                             <input type="text" class="form-control" id="password" name="password">
                         </div>
@@ -87,6 +88,8 @@
     <!-- Custom JS-->
     <script type="text/javascript" src="build/js/second-layout/app.js"></script>
     <script type="text/javascript" src="build/js/second-layout/demo.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js"></script>
+    <script type="text/javascript" src="custom/index.js"></script>
 </body>
 
 </html>

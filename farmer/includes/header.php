@@ -1,4 +1,8 @@
-<?php include_once '../config/constants.php'; ?>
+<?php session_start(); ?>
+<?php
+include_once '../config/constants.php';
+include_once '../config/db.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -49,6 +53,7 @@
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/datatables.net-colreorder-bs/css/colReorder.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/datatables.net-responsive-bs/css/responsive.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.min.css" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!-- WARNING: Respond.js doesn't work if you view the page via file://--> 
     <!--[if lt IE 9]>
@@ -137,8 +142,8 @@
       <aside data-mcs-theme="minimal-dark" class="main-sidebar mCustomScrollbar">
         <div class="user">
           <div id="esp-user-profile" data-percent="65" style="height: 104px; width: 104px; line-height: 80px; padding: 12px;" class="easy-pie-chart"><img src="<?= BASE_URL ?>build/images/users/04.jpg" alt="" class="avatar img-circle"><span class="status bg-success"></span></div>
-          <h4 class="fs-14 text-muted mt-15 mb-5 fw-300">Matthew Gonzalez</h4>
-          <p class="fs-13 mb-0 text-muted">Designer</p>
+          <h4 class="fs-14 text-muted mt-15 mb-5 fw-300"><?= $_SESSION['fullname'] ?></h4>
+          <p class="fs-13 mb-0 text-muted"><?= $_SESSION['user_type'] ?></p>
         </div>
         <ul class="list-unstyled navigation mb-0">
           <li class="sidebar-header pt-0">Main</li>

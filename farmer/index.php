@@ -9,23 +9,6 @@
         </div>
     </div>
     <div class="page-content container-fluid p-0">
-        <div class="row row-0">
-            <div class="col-lg-12">
-                <div style="height: 150px; padding-top: 30px;" class="pl-30 pr-30 clearfix overlay text-white">
-                    <div class="pull-left media">
-                        <div class="media-left">
-                            <a href="javascript:void(0)" style="display: inline-block; border-radius: 50%; padding: 3px; background-color: #fff;">
-                                <img src="../build/images/users/06.jpg" width="100" alt="" class="img-circle">
-                            </a>
-                        </div>
-                        <div style="width: auto; color:#000000" class="media-body media-middle">
-                            <h2 class="media-heading">Steven Cook</h2>
-                            <div class="fs-20">Software Developer</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="row ml-10 mr-10 pt-10">
             <div class="col-md-3">
                 <div class="widget clear">
@@ -33,58 +16,86 @@
                         <h3 class="widget-title">About me</h3>
                     </div>
                     <div class="widget-body">
-                        <ul class="media-list mb-0">
-                            <li class="media">
-                                <div class="media-left">
-                                    <i class="ti-briefcase text-info"></i>
-                                </div>
-                                <div class="media-body">
-                                    <p>Software Developer</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                    <i class="ti-gift text-info"></i>
-                                </div>
-                                <div class="media-body">
-                                    <p>20 October 1990</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                    <i class="ti-email text-info"></i>
-                                </div>
-                                <div class="media-body">
-                                    <p>lethemes@gmail.com</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                    <i class="ti-home text-info"></i>
-                                </div>
-                                <div class="media-body">
-                                    <p>4270 Cottage Hill Road</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                    <i class="ti-mobile text-info"></i>
-                                </div>
-                                <div class="media-body">
-                                    <p>(251) 300-2770</p>
-                                </div>
-                            </li>
-                            <li class="media">
-                                <div class="media-left">
-                                    <i class="ti-world text-info"></i>
-                                </div>
-                                <div class="media-body">
-                                    <p>www.lethemes.net</p>
-                                </div>
-                            </li>
-                        </ul>
-                        <a href="edit-profile.php" class="btn btn-raised btn-block btn-success">
-                            <i class="glyphicon glyphicon-pencil"></i> &nbsp;&nbsp;Edit Profile</a>
+
+                    <?php
+                        $sql = "SELECT * FROM tbl_user WHERE id = '".$_SESSION['id']."'";
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            $row = $result->fetch_assoc();
+                            ?>
+                                <ul class="media-list mb-0">
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <i class="ti-briefcase text-info"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <p><?= $row['user_type']?></p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <i class="ti-gift text-info"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <p><?= $row['birthday']?></p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <i class="ti-email text-info"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <p><?= $row['email']?></p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <i class="ti-home text-info"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <p>
+                                                <?php
+                                                    if ($row['add_street']) {
+                                                        echo $row['add_street'] . ',';
+                                                    }else {
+                                                        echo '';
+                                                    }
+
+                                                    if ($row['add_barangay']) {
+                                                        echo $row['add_barangay'] . ',';
+                                                    }else {
+                                                        echo '';
+                                                    }
+                                                    if ($row['add_city']) {
+                                                        echo $row['add_city'] . ',';
+                                                    }else {
+                                                        echo '';
+                                                    }
+                                                    if ($row['add_province']) {
+                                                        echo $row['add_province'] . '';
+                                                    }else {
+                                                        echo '';
+                                                    }
+                                                ?>
+                                            </p>
+                                        </div>
+                                    </li>
+                                    <li class="media">
+                                        <div class="media-left">
+                                            <i class="ti-mobile text-info"></i>
+                                        </div>
+                                        <div class="media-body">
+                                            <p><?= $row['phone'] ?></p>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <a href="edit-profile.php?id=<?= $row['id'] ?>" class="btn btn-raised btn-block btn-success">
+                                    <i class="glyphicon glyphicon-pencil"></i> &nbsp;&nbsp;Edit Profile</a>
+                            <?php
+                        }else{
+                            echo '0 result found';
+                        }
+                    ?>
                     </div>
                 </div>
                 <div class="widget clear">

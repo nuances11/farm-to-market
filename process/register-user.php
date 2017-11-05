@@ -51,6 +51,20 @@ $data           = array();      // array to pass back data
     if (empty($_POST['province']))
         $errors['province'] = 'This address field is required';
 
+    $sql1 = "SELECT username FROM tbl_user WHERE username = '".$_POST['username']."'";
+        $result1 = $conn->query($sql1);
+
+        if ($result1->num_rows > 0) {
+            $errors['usernameduplicate'] = 'Username already Exist';
+        } else {
+            $sql2 = "SELECT email FROM tbl_user WHERE email = '".$_POST['email']."'";
+            $result2 = $conn->query($sql2);
+
+            if ($result2->num_rows > 0) {
+                $errors['emailduplicate'] = 'Email already Exist';
+            }
+        }
+
 // return a response ===========================================================
 
     // if there are any errors in our errors array, return a success boolean of false
@@ -63,7 +77,7 @@ $data           = array();      // array to pass back data
 
         $user_type = $_POST['user_type'];
         $user = $_POST['username'];
-        $pass = $_POST['password'];
+        $pass = md5($_POST['password']);
         $email = $_POST['email'];
         $fname = $_POST['fname'];
         $mname = $_POST['mname'];
@@ -78,14 +92,15 @@ $data           = array();      // array to pass back data
         $md5_hash = md5(time() + mt_rand(1, 99999999));
         $date = date("Y-m-d h:i:sa");
 
-        $sql = "INSERT INTO tbl_user VALUES (NULL, $user , $pass, $email, $user_type, $fname, $mname, $lname, $birthday, $gender, $contact, ' ', $street, $barangay, $city, $province, ' ', $md5_hash, $date, $date, '0')";
         
+        $sql = "INSERT INTO tbl_user VALUES (NULL, '".$user."', '".$pass."', '".$email."', '".$user_type."', '".$fname."', '".$mname."', '".$lname."', '".$birthday."', '".$gender."', '".$contact."', '', '".$street."', '".$barangay."', '".$city."', '".$province."', '', '".$md5_hash."', '".$date."', '".$date."', '1')";
         if ($conn->query($sql) === TRUE) {
             $data['success'] = true;
             $data['message'] = 'Success!';
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            $data['success'] = false;
         }
+            
 
         // if there are no errors process our form, then return a message
 

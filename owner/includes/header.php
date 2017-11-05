@@ -1,4 +1,6 @@
+<?php session_start(); ?>
 <?php include_once '../config/constants.php'; ?>
+<?php include_once '../config/db.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -46,6 +48,7 @@
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>build/css/second-layout.css">
     <!-- Custom Style-->
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>custom/owner.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>build/css/style.css">
     <!-- DataTables-->
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
@@ -147,8 +150,8 @@
           <li><a href="index.php"><i class="ti-home"></i> Dashboard</a></li>
           <li class="panel"><a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse2" aria-expanded="false" aria-controls="collapse2" class="collapsed"><i class="ti-shopping-cart"></i> E-commerce</a>
             <ul id="collapse2" class="list-unstyled collapse">
-              <li><a href="add-product.php">Add Product</a></li>
-              <li><a href="product-list.php">Product list</a></li>
+              <!-- <li><a href="add-product.php">Add Product</a></li> -->
+              <li><a href="products.php">Product list</a></li>
             </ul>
           </li>
           <li class="panel"><a href="customer.php"><i class="ti-layout-grid2"></i> Customers</a>

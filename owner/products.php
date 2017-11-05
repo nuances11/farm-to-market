@@ -12,59 +12,86 @@
         </div>
     </div>
     <div class="page-content container-fluid">
-        <div id="make-3D-space">
-    <div id="product-card">
-        <div id="product-front">
-        	<div class="shadow"></div>
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/t-shirt.png" alt="" />
-            <div class="image_overlay"></div>
-            <div id="view_details">View details</div>
-            <div class="stats">        	
-                <div class="stats-container">
-                    <span class="product_price">$39</span>
-                    <span class="product_name">Adidas Originals</span>    
-                    <p>Men's running shirt</p>                                            
-                    
-                    <div class="product-options">
-                    <strong>SIZES</strong>
-                    <span>XS, S, M, L, XL, XXL</span>
-                    <strong>COLORS</strong>
-                    <div class="colors">
-                        <div class="c-blue"><span></span></div>
-                        <div class="c-red"><span></span></div>
-                        <div class="c-white"><span></span></div>
-                        <div class="c-green"><span></span></div>
-                    </div>
-                </div>                       
-                </div>                         
-            </div>
-        </div>
-        <div id="product-back">
-	        <div class="shadow"></div>
-            <div id="carousel">
-                <ul>
-                    <li><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/t-shirt-large.png" alt="" /></li>
-                    <li><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/t-shirt-large2.png" alt="" /></li>
-                    <li><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/t-shirt-large3.png" alt="" /></li>
-                </ul>
-                <div class="arrows-perspective">
-                    <div class="carouselPrev">
-                        <div class="y"></div>
-	                    <div class="x"></div>
-                    </div>
-                    <div class="carouselNext">
-                        <div class="y"></div>
-	                    <div class="x"></div>
-                    </div>
+        <div class="women_main">
+            <!-- start content -->
+
+            <div class="w_content">
+                <div class="women">
+                    <a href="#">
+                        <h4>Enthecwear -
+                            <span>4449 items</span>
+                        </h4>
+                    </a>
+                    <ul class="w_nav">
+                        <li>Sort : </li>
+                        <li>
+                            <a class="active" href="#">popular</a>
+                        </li> |
+                        <li>
+                            <a href="#">new </a>
+                        </li> |
+                        <li>
+                            <a href="#">discount</a>
+                        </li> |
+                        <li>
+                            <a href="#">price: Low High </a>
+                        </li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="row">
+                <!-- grids_of_4 -->
+                    <?php
+                        $sql = "SELECT * FROM tbl_products";
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                ?>
+                                    <div class="col-sm-3 col-md-3 col-xs-12 grid1_of_4" style="margin-bottom:5px;margin-top:5px;">
+                                        <div class="content_box">
+                                            <a href="details.php?id=<?= $row['id'] ?>"> 
+                                                <img
+                                                    <?php 
+                                                        if ($row['prod_image']) {
+                                                            ?>
+                                                                src = "<?= $row['prod_image']?>"
+                                                            <?php
+                                                        }else {
+                                                            ?>
+                                                            src="<?= BASE_URL ?>build/images/no-image.jpg"
+                                                            <?php
+                                                        }
+                                                    ?>
+                                                class="img-responsive" alt="">
+                                            </a>
+                                            <h4>
+                                                <a href="details.php?id=<?= $row['id'] ?>"> <?= $row['prod_name'] ?></a>
+                                            </h4>
+                                            <p><?= $row['prod_description'] ?></p>
+                                            <div class="grid_1 simpleCart_shelfItem">
+
+                                                <div class="item_add">
+                                                    <span class="item_price">
+                                                        <h6>PHP <?= number_format($row['prod_price'],2) ?></h6>
+                                                    </span>
+                                                </div>
+                                                <div class="item_add">
+                                                    <span class="item_price">
+                                                        <a href="#" class="btn btn-outline btn-success">add to cart</a>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php
+                            }
+                        }
+                    ?>
+                <!-- end grids_of_4 -->
                 </div>
             </div>
-            <div id="flip-back">
-            	<div id="cy"></div>
-                <div id="cx"></div>
-            </div>
-        </div>	  
-    </div>	
-</div>	
+        </div>
     </div>
 </div>
 <?php include 'includes/footer.php'?>

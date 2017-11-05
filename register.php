@@ -37,9 +37,6 @@
         <a href="index.php" class="brand pull-left">
             <h2>UMEGA</h2>
         </a>
-        <a href="javascript:;" role="button" class="hamburger-menu pull-left visible-xs">
-            <span></span>
-        </a>
         <ul class="notification-bar list-inline pull-right" style="vertical-align:center">
             <li class="custom-menu">
                 <a href="index.php" class="header-icon">
@@ -119,7 +116,7 @@
                                             <?php
                                                 for($m=1; $m<=12; ++$m){
                                                     ?>
-                                                    <option value="<?= $m ?>"><?= date('F', mktime(0, 0, 0, $m, 1)) ?></option>
+                                                    <option value="<?= date('F', mktime(0, 0, 0, $m, 1))?>"><?= date('F', mktime(0, 0, 0, $m, 1)) ?></option>
                                                     <?php
                                                 }
                                             ?>
