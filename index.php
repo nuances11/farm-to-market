@@ -35,7 +35,7 @@
     <!-- Header start-->
     <header>
         <a href="index.php" class="brand pull-left">
-            <h2>UMEGA</h2>
+            <h2>AGRIPRENEUR</h2>
         </a>
         <a href="javascript:;" role="button" class="hamburger-menu pull-left visible-xs">
             <span></span>

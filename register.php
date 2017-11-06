@@ -35,7 +35,7 @@
     <!-- Header start-->
     <header>
         <a href="index.php" class="brand pull-left">
-            <h2>UMEGA</h2>
+            <h2>AGRIPRENEUR</h2>
         </a>
         <ul class="notification-bar list-inline pull-right" style="vertical-align:center">
             <li class="custom-menu">
