@@ -5,6 +5,19 @@ License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 */
 
+.cart-info {
+    padding-right: 70px;
+}
+
+.cart-info>i {
+    font-size: 24px;
+    width: 24px;
+    height: 24px;
+    display: block;
+    margin: 0 auto 10px;
+    float: right;
+}
+
 html,
 body {
     font-family: 'Roboto', sans-serif;
@@ -782,7 +795,7 @@ span.item_price {
 .box_1 {
     float: left;
     margin: 0.55em 0.1em 0;
-    width: 38%;
+    width: 60%;
 }
 
 .box_1 h3 {
@@ -1067,7 +1080,8 @@ input:focus {
     width: 21%;
 }
 
-.create_btn a {
+
+/* .create_btn a {
     text-transform: capitalize;
     display: inline-block;
     padding: 6px 16px;
@@ -1079,7 +1093,7 @@ input:focus {
     -moz-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-}
+} */
 
 .create_btn a:hover {
     background: #B52E31;
@@ -3710,41 +3724,41 @@ span.brand {
     color: #B52E31;
 }
 
-.btn-primary {
+#.btn-primary {
     color: #fff;
     background-color: #252525 !important;
     border-color: #252525 !important;
 }
 
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary.focus,
-.btn-primary:active,
-.btn-primary.active,
-.open>.dropdown-toggle.btn-primary {
+#.btn-primary:hover,
+#.btn-primary:focus,
+#.btn-primary.focus,
+#.btn-primary:active,
+#.btn-primary.active,
+.open>.dropdown-toggle#.btn-primary {
     color: #fff;
     background-color: #b52e31 !important;
     border-color: #b52e31 !important;
 }
 
-.btn-danger {
+#.btn-danger {
     color: #fff;
     background-color: #B52E31 !important;
     border-color: #B52E31 !important;
 }
 
-.btn-danger:hover,
-.btn-danger:focus,
-.btn-danger.focus,
-.btn-danger:active,
-.btn-danger.active,
-.open>.dropdown-toggle.btn-danger {
+#.btn-danger:hover,
+#.btn-danger:focus,
+#.btn-danger.focus,
+#.btn-danger:active,
+#.btn-danger.active,
+#.open>.dropdown-toggle.#btn-danger {
     color: #fff;
     background-color: #252525 !important;
     border-color: #252525 !important;
 }
 
-.validation-grids .btn-primary {
+.validation-grids #.btn-primary {
     background: #B52E31 !important;
     color: #FFF;
     border: none;
@@ -3763,11 +3777,11 @@ span.brand {
     border-radius: inherit;
 }
 
-.validation-grids .btn-primary:hover {
+.validation-grids #.btn-primary:hover {
     background: #252525 !important;
 }
 
-.bottom .btn-primary {
+.bottom #.btn-primary {
     margin: 0;
 }
 

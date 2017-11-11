@@ -1,4 +1,36 @@
 $(document).ready(function() {
+	
+	$('#remove-btn').click(function(){
+		var form = $('#remove-item');
+		$.ajax({
+			type	: 'POST',
+			url		: 'addtocart.php',
+			data	: form.serialize();
+			
+		})
+	})
+
+    $('#add-to-cart').submit(function(event) {
+        var cart = $('#add-to-cart');
+        console.log(cart);
+
+        $.ajax({
+            type: 'POST',
+            url: 'addtocart.php',
+            data: cart.serialize(),
+            dataType: 'json',
+            encode: true
+        }).done(function(data) {
+            console.log(data);
+            if (!data.success) {
+                alert('Error adding products');
+            } else {
+                location.reload();
+            }
+        })
+
+        event.preventDefault();
+    })
 
     $('#itemslider').carousel({ interval: 3000 });
 

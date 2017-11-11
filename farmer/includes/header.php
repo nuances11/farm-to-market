@@ -9,7 +9,7 @@ include_once '../config/db.php';
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Umega App - Responsive web app kit</title>
+    <title>AGRIPRENEUR</title>
     <!-- PACE-->
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/PACE/themes/blue/pace-theme-flash.css">
     <script type="text/javascript" src="<?= BASE_URL ?>assets/PACE/pace.min.js"></script>
