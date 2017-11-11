@@ -1,14 +1,4 @@
 $(document).ready(function() {
-	
-	$('#remove-btn').click(function(){
-		var form = $('#remove-item');
-		$.ajax({
-			type	: 'POST',
-			url		: 'addtocart.php',
-			data	: form.serialize();
-			
-		})
-	})
 
     $('#add-to-cart').submit(function(event) {
         var cart = $('#add-to-cart');

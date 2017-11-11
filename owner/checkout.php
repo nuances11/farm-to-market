@@ -19,8 +19,8 @@
         <?php
         $item_total = 0;
         $item_quantity = 0;
-            if(isset($_SESSION["cart_item"])){
-                foreach ($_SESSION["cart_item"] as $item){
+            if(isset($_SESSION["cart_session"])){
+                foreach ($_SESSION["cart_session"] as $item){
                    $item_quantity += $item['quantity'];
                     $item_total += ($item["price"]*$item["quantity"]); 
                     }
@@ -68,14 +68,14 @@
                         </tr>
                     </thead>
                     <tbody>
-					<form action="addtocart.php" method="POST">
+					
 					<?php
 						$total_price = 0;
 						$grand_total = 0;
 						$total_quantity = 0;
-						if(isset($_SESSION["cart_item"])){
-							foreach ($_SESSION["cart_item"] as $item){
-								$sql ="SELECT * FROM tbl_products WHERE id = '".$item['id']."'";
+						if(isset($_SESSION["cart_session"])){
+							foreach ($_SESSION["cart_session"] as $item){
+								$sql ="SELECT * FROM tbl_products WHERE id = '".$item['code']."'";
 								$result = $conn->query($sql);
 								if($result->num_rows > 0){
 									while($row = $result->fetch_assoc()){
@@ -96,8 +96,8 @@
 												<span class="label label-success"><?= $row['prod_sku'] ?></span>
 											</td>
 											<td class="text-right"><?= $item['quantity'] ?></td>
-											<td class="text-center"><?= number_format($item["price"],2) ?></td>
-											<td class="text-center"><?= number_format($total_price,2) ?></td>
+											<td class="text-center">P&nbsp;&nbsp;<?= number_format($item["price"],2) ?></td>
+											<td class="text-center">P&nbsp;&nbsp;<?= number_format($total_price,2) ?></td>
 											<td class="text-center">
 												<div role="group" aria-label="Basic example" class="btn-group btn-group-sm">
 													<a href="details.php?id=<?= $row['id'] ?>" type="button" class="btn btn-outline btn-primary">
@@ -106,14 +106,17 @@
 													<button type="button" class="btn btn-outline btn-success">
 														<i class="ti-pencil"></i>
 													</button>
-													<input type="hidden" name="return_url" value="<?= $current_url ?>">
+													<!-- <form action="addtocart.php" method="POST">
+													<input type="hidden" name="prod_id" value="<?= $row['id'] ?>">
 													<input type="hidden" name="action" value="remove">
-													<input type="hidden" name="id" value="<?=$row['id']?>">
+													<input type="hidden" name="return_url" value="<?= $current_url ?>">
 													<button type="submit" class="btn btn-outline btn-danger">
 														<i class="ti-trash"></i>
 													</button>
+													</form> -->
+													<a href="addtocart.php?removep=<?php echo $item["code"].'&return_url='.$current_url; ?>" class="btn btn-outline btn-danger"><i class="ti-trash"></i></a>
 												</div>
-												<a href="addtocart.php?id=<?= $row['id'] ?>&action=remove&return_url=<?= $current_url ?>">remove</a>
+												
 											</td>
 										</tr>
 									<?php
@@ -127,14 +130,14 @@
 							echo 'no product to display';
 						}
 					?>
-					</form>
+					
 					<tr style="background-color:#c1f5c1">
 						<td><b>TOTAL</b></td>
 						<td>&nbsp;</td>
 						<td class="text-right"><b><?= $total_quantity ?></b></td>
 						<td>&nbsp;</td>
-						<td class="text-center"><b><?= number_format($total_price,2) ?></b></td>
-						<td class="text-center"><a href="place-order.php" class="btn btn-success">Place Order(s)</a></td>
+						<td class="text-center"><b>P&nbsp;&nbsp;<?= number_format($total_price,2) ?></b></td>
+						<td class="text-center"><a href="invoice.php" class="btn btn-success">Place Order(s)</a></td>
 					</tr>
                         
                     </tbody>

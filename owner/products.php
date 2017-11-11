@@ -15,8 +15,8 @@
         <?php
         $item_total = 0;
         $item_quantity = 0;
-            if(isset($_SESSION["cart_item"])){
-                foreach ($_SESSION["cart_item"] as $item){
+            if(isset($_SESSION["cart_session"])){
+                foreach ($_SESSION["cart_session"] as $item){
                    $item_quantity += $item['quantity'];
                     $item_total += ($item["price"]*$item["quantity"]); 
                     }
@@ -113,15 +113,15 @@
                                                     <?= number_format($row['prod_price'],2) ?>
                                                 </h6>
                                             </span>
-                                        </div>
+                                        </div> 
                                         
                                         <form action="addtocart.php" method="POST">
-                                        <input type="hidden" name="prod_id" value="<?= $row['id'] ?>">
-                                        <input type="hidden" name="action" value="add">
+                                        <input type="hidden" name="product_id" value="<?= $row['id'] ?>">
+                                        <input type="hidden" name="type" value="add">
                                         <input type="hidden" name="return_url" value="<?= $current_url ?>">
                                         <div class="item_add">
                                             <span class="item_price">
-                                                <input type="number" name="quantity" id="quantity" class="form-control" value="1"  style="width:50%;margin: 0 auto;">
+                                                <input type="number" name="product_qty" id="product_qty" class="form-control" value="1"  style="width:50%;margin: 0 auto;">
                                             </span>
                                         </div>
                                         <div class="item_add">
