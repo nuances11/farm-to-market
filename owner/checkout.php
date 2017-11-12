@@ -50,6 +50,9 @@
                 <h3 class="widget-title">Checkout</h3>
             </div>
             <div class="widget-body">
+				<?php
+					if(isset($_SESSION["cart_session"])){
+				?>
                 <table id="order-list" style="width: 100%" class="table table-hover dt-responsive nowrap">
                     <thead>
                         <tr style="background-color:#c1f5c1">
@@ -73,7 +76,6 @@
 						$total_price = 0;
 						$grand_total = 0;
 						$total_quantity = 0;
-						if(isset($_SESSION["cart_session"])){
 							foreach ($_SESSION["cart_session"] as $item){
 								$sql ="SELECT * FROM tbl_products WHERE id = '".$item['code']."'";
 								$result = $conn->query($sql);
@@ -125,10 +127,6 @@
 									echo 'no product to display';
 								}
 							}
-							
-						}else{
-							echo 'no product to display';
-						}
 					?>
 					
 					<tr style="background-color:#c1f5c1">
@@ -141,7 +139,12 @@
 					</tr>
                         
                     </tbody>
-                </table>
+				</table>
+				<?php
+					}else{
+							echo 'No product to display. <a href="products.php">Click Here</a> to check the products.';
+						}
+				?>
             </div>
         </div>
     </div>

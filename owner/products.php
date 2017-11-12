@@ -11,17 +11,20 @@
                 <li class="active">Product List</li>
             </ol>
         </div>
+        <?php 
+            if(isset($_SESSION["cart_session"])){
+        ?>
         <div class="pull-right cart-info">
         <?php
         $item_total = 0;
         $item_quantity = 0;
-            if(isset($_SESSION["cart_session"])){
+            
                 foreach ($_SESSION["cart_session"] as $item){
                    $item_quantity += $item['quantity'];
                     $item_total += ($item["price"]*$item["quantity"]); 
                     }
                     
-		}
+		
         ?>
             <div>
             <b>PHP <?= number_format($item_total,2) ?></b>&nbsp;&nbsp;<a href="checkout.php"><i class="ti-shopping-cart checkout-icon"></i></a>
@@ -38,7 +41,10 @@
             <?php
         
 		?>
-        </div>      
+        </div>   
+        <?php
+        }
+        ?>   
     </div>
         
    
@@ -99,7 +105,7 @@
                                     </a>
                                     <h4>
                                         <a href="details.php?id=<?= $row['id'] ?>">
-                                            <?= $row['prod_name'] ?>
+                                            <b><?= $row['prod_name'] ?></b>
                                         </a>
                                     </h4>
                                     <p>
@@ -119,16 +125,23 @@
                                         <input type="hidden" name="product_id" value="<?= $row['id'] ?>">
                                         <input type="hidden" name="type" value="add">
                                         <input type="hidden" name="return_url" value="<?= $current_url ?>">
+                                        
                                         <div class="item_add">
-                                            <span class="item_price">
+                                            <div class="bootstrap-filestyle input-group">
+                                                <input type="number" name="product_qty" id="product_qty" class="form-control" value="1"> 
+                                                    <span class="group-span-filestyle input-group-btn" tabindex="0">
+                                                        <button type="submit" class="btn btn-outline btn-success"><i class="ti-shopping-cart checkout-icon"></i></button>
+                                                    </span>
+                                            </div>
+                                            <!-- <span class="item_price">
                                                 <input type="number" name="product_qty" id="product_qty" class="form-control" value="1"  style="width:50%;margin: 0 auto;">
-                                            </span>
+                                            </span> -->
                                         </div>
-                                        <div class="item_add">
+                                        <!--<div class="item_add">
                                             <span class="item_price">
                                                 <input type="submit" class="btn btn-outline btn-success" value="add to cart">
                                             </span>
-                                        </div>
+                                        </div> -->
                                         </form>
                                     </div>
                                 </div>

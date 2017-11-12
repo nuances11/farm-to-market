@@ -6,7 +6,7 @@ include_once '../config/db.php';
 if(isset($_GET["emptycart"]) && $_GET["emptycart"]==1)
 {
     $return_url = base64_decode($_GET["return_url"]); //return url
-    session_destroy();
+    unset($_SESSION["cart_session"]);
     header('Location:'.$return_url);
 }
 
@@ -56,8 +56,7 @@ if(isset($_POST["type"]) && $_POST["type"]=='add')
             $_SESSION["cart_session"] = $new_product;
         }
 
-    }
-
+	}
     //redirect back to original page
     header('Location:'.$return_url);
 }
