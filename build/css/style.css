@@ -2041,9 +2041,10 @@ p.product_descr {
 }
 
 .desc1 h3 {
-    color: #B52E31;
+    color: #17A88B;
     font-size: 1.4em;
     text-transform: capitalize;
+	font-weight: 600;
 }
 
 .desc1 p {
@@ -2103,7 +2104,7 @@ p.product_descr {
 }
 
 .btn_form {
-    margin: 8% 0 4%;
+    margin: 4% 0 4%;
 }
 
 
@@ -3644,7 +3645,7 @@ span.text {
 }
 
 span.price-new {
-    color: #B52E31;
+    color: #17A88B;
     margin-right: 15px;
     font-weight: 500;
     font-size: 1.3em;

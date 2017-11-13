@@ -1,4 +1,33 @@
 $(document).ready(function() {
+	
+	$('.update-item').click(function(){
+		var targetId = $(this).data('id');
+		$('span[data-id=' + targetId + ']').addClass('hidden');
+		$('div[data-id=' + targetId + ']').removeClass('hidden');
+		
+		console.log(targetId);
+		/* $('#prod_val').addClass('hidden');
+		$('.update-form').removeClass('hidden'); */
+	})
+
+
+	$('#item-minus').click(function(){
+		var qty = parseInt($('#product_qty').val());
+		var total_qty = 0;
+		if(qty > 1){
+			total_qty = qty - 1;
+			$('#product_qty').val(total_qty);
+			console.log(total_qty);
+		}
+		
+	})
+	$('#item-plus').click(function(){
+		var qty = parseInt($('#product_qty').val());
+		var total_qty = 0;
+		total_qty = qty + 1;
+		$('#product_qty').val(total_qty);
+		console.log(total_qty);
+	})
 
     $('#add-to-cart').submit(function(event) {
         var cart = $('#add-to-cart');

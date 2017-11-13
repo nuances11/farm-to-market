@@ -11,7 +11,7 @@ if(isset($_GET["emptycart"]) && $_GET["emptycart"]==1)
 }
 
 //add item in shopping cart
-if(isset($_POST["type"]) && $_POST["type"]=='add')
+if(isset($_POST["type"]) && $_POST["type"]=='add' && is_numeric($_POST['product_qty']))
 {
     $product_id 	= filter_var($_POST["product_id"], FILTER_SANITIZE_STRING); //product code
     $product_qty 	= filter_var($_POST["product_qty"], FILTER_SANITIZE_NUMBER_INT); //product code
@@ -57,8 +57,16 @@ if(isset($_POST["type"]) && $_POST["type"]=='add')
         }
 
 	}
+	
     //redirect back to original page
     header('Location:'.$return_url);
+}else{
+	?>
+		<script>
+			alert('Invalid quantity value.');
+			window.location.href = "products.php";
+		</script>
+	<?php
 }
 
 //remove item from shopping cart

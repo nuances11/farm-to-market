@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2017 at 03:12 PM
+-- Generation Time: Nov 13, 2017 at 10:30 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -48,12 +48,56 @@ CREATE TABLE `tbl_products` (
 --
 
 INSERT INTO `tbl_products` (`id`, `prod_name`, `prod_category`, `prod_subcategory`, `prod_description`, `prod_sku`, `prod_price`, `prod_quantity`, `prod_minquantity`, `prod_status`, `timestamp_create`, `timestamp_update`, `prod_image`, `farmer_id`) VALUES
-(1, 'Sample Product', 'Category 1', 'Sub-category 1', 'Sample Product Description', 'SKU1', '100', 100, 10, 0, '2017-11-05 12:54:43pm', '2017-11-05 12:54:43pm', '', 3),
+(1, 'Sample Product', 'Category 1', 'Sub-category 1', 'Sample Product Description', 'SKU1', '100', 0, 10, 0, '2017-11-05 12:54:43pm', '2017-11-05 12:54:43pm', '', 3),
 (2, 'dasdasdsa', 'Category 1', 'Sub-category 1', 'dasdasd', 'dasdasd', '312', 312, 10, 1, '2017-11-05 12:57:35pm', '2017-11-05 12:57:35pm', '', 3),
 (3, 'wqeqwe', 'Category 1', 'Sub-category 1', 'eqweqwewq', 'eqweqw', '2132', 3123, 12312, 1, '2017-11-05 12:58:47pm', '2017-11-05 12:58:47pm', '', 3),
 (4, 'eqweqw', 'Category 1', 'Sub-category 1', 'eqweqweqw', 'eddasdas', '3123', 123123, 13, 1, '2017-11-05 01:00:20pm', '2017-11-05 01:00:20pm', '', 3),
 (5, 'weqweqwe', 'Category 1', 'Sub-category 1', 'qeqeqweqw', 'wqeqweqw', '12312', 123123, 112, 1, '2017-11-05 01:00:45pm', '2017-11-05 01:00:45pm', '', 3),
 (6, 'qweqw', 'Category 1', 'Sub-category 1', 'eqweqwewqe', 'eqweqw', '3213123', 12312312, 112, 1, '2017-11-05 01:01:33pm', '2017-11-05 01:01:33pm', '', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_transactions`
+--
+
+CREATE TABLE `tbl_transactions` (
+  `id` int(8) UNSIGNED ZEROFILL NOT NULL,
+  `timestamp_created` varchar(255) NOT NULL,
+  `owner_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_transactions`
+--
+
+INSERT INTO `tbl_transactions` (`id`, `timestamp_created`, `owner_id`) VALUES
+(00000001, '2017-11-12 22:37:14', 2),
+(00000002, '2017-11-12 23:02:38', 2),
+(00000003, '2017-11-12 23:03:37', 2),
+(00000004, '2017-11-12 23:03:50', 2),
+(00000005, '2017-11-12 23:04:03', 2),
+(00000006, '2017-11-12 23:05:22', 2),
+(00000007, '2017-11-12 23:06:22', 2),
+(00000008, '2017-11-12 23:07:49', 2);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_trans_per_product`
+--
+
+CREATE TABLE `tbl_trans_per_product` (
+  `id` int(11) NOT NULL,
+  `trans_id` int(8) UNSIGNED ZEROFILL NOT NULL,
+  `prod_name` varchar(255) NOT NULL,
+  `prod_sku` varchar(255) NOT NULL,
+  `prod_total_qty` int(11) NOT NULL,
+  `prod_unit_price` int(11) NOT NULL,
+  `prod_total_price` int(11) NOT NULL,
+  `owner_id` int(11) NOT NULL,
+  `farmer_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -105,6 +149,18 @@ ALTER TABLE `tbl_products`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_transactions`
+--
+ALTER TABLE `tbl_transactions`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_trans_per_product`
+--
+ALTER TABLE `tbl_trans_per_product`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
@@ -119,6 +175,16 @@ ALTER TABLE `tbl_user`
 --
 ALTER TABLE `tbl_products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `tbl_transactions`
+--
+ALTER TABLE `tbl_transactions`
+  MODIFY `id` int(8) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `tbl_trans_per_product`
+--
+ALTER TABLE `tbl_trans_per_product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --

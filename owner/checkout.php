@@ -62,6 +62,7 @@
                                     <label for="checkAll" class="pl-0">&nbsp;</label>
                                 </div>
                             </th> -->
+							<th>#</th>
                             <th><b>Product Name</b></th>
                             <th>SKU</th>
                             <th class="text-right"><b>Quantity</b></th>
@@ -76,6 +77,8 @@
 						$total_price = 0;
 						$grand_total = 0;
 						$total_quantity = 0;
+						$i = 1;
+						$s = 1;
 							foreach ($_SESSION["cart_session"] as $item){
 								$sql ="SELECT * FROM tbl_products WHERE id = '".$item['code']."'";
 								$result = $conn->query($sql);
@@ -93,11 +96,24 @@
 													<label for="product-01" class="pl-0">&nbsp;</label>
 												</div>
 											</td> -->
+											<td><?= $i ?></td>
 											<td><?= $row['prod_name'] ?></td>
 											<td>
 												<span class="label label-success"><?= $row['prod_sku'] ?></span>
 											</td>
-											<td class="text-right"><?= $item['quantity'] ?></td>
+											<td class="text-right">
+												<div class="prod_quantity" >
+													<div class="update-form hidden" data-id="<?= $s ?>">
+														<form action="addtocart.php" method="POST"><input type="hidden" name="product_id" value="<?= $row['id'] ?>">
+															<input type="hidden" name="type" value="add">
+															<input type="hidden" name="return_url" value="<?= $current_url ?>">
+															<input type="submit" class="btn btn-outline btn-success" value="Update">
+															<input type="number" name="product_qty" id="product_qty" value="<?= $item['quantity'] ?>" style="width:60px;height: 34px;padding: 6px 12px;line-height: 1.42857143;border: 1px solid #e6e6e6;">
+														</form>
+													</div>
+													<span id="prod_val" data-id="<?= $s ?>"><?= $item['quantity'] ?></span>
+												</div>
+											</td>
 											<td class="text-center">P&nbsp;&nbsp;<?= number_format($item["price"],2) ?></td>
 											<td class="text-center">P&nbsp;&nbsp;<?= number_format($total_price,2) ?></td>
 											<td class="text-center">
@@ -105,23 +121,17 @@
 													<a href="details.php?id=<?= $row['id'] ?>" type="button" class="btn btn-outline btn-primary">
 														<i class="ti-eye"></i>
 													</a>
-													<button type="button" class="btn btn-outline btn-success">
+													<button type="button" class="btn btn-outline btn-success update-item" id="" data-id="<?= $s ?>">
 														<i class="ti-pencil"></i>
 													</button>
-													<!-- <form action="addtocart.php" method="POST">
-													<input type="hidden" name="prod_id" value="<?= $row['id'] ?>">
-													<input type="hidden" name="action" value="remove">
-													<input type="hidden" name="return_url" value="<?= $current_url ?>">
-													<button type="submit" class="btn btn-outline btn-danger">
-														<i class="ti-trash"></i>
-													</button>
-													</form> -->
 													<a href="addtocart.php?removep=<?php echo $item["code"].'&return_url='.$current_url; ?>" class="btn btn-outline btn-danger"><i class="ti-trash"></i></a>
 												</div>
 												
 											</td>
 										</tr>
 									<?php
+									$i++;
+									$s++;
 									}
 								}else{
 									echo 'no product to display';
@@ -131,6 +141,7 @@
 					
 					<tr style="background-color:#c1f5c1">
 						<td><b>TOTAL</b></td>
+						<td>&nbsp;</td>
 						<td>&nbsp;</td>
 						<td class="text-right"><b><?= $total_quantity ?></b></td>
 						<td>&nbsp;</td>

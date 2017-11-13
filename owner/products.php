@@ -109,7 +109,19 @@
                                         </a>
                                     </h4>
                                     <p>
-                                        <?= $row['prod_description'] ?>
+                                        Stocks: 
+										<?php 
+											if($row['prod_quantity'] > 0){
+												if($row['prod_quantity'] < $row['prod_minquantity'] ){
+													echo '<span class="label label-warning">' . number_format($row['prod_quantity']) . '</span>';
+												}else{
+													echo '<span class="label label-success">' . number_format($row['prod_quantity']) . '</span>';
+												}
+												
+											}else{
+												echo '<span class="label label-danger">Out of Stock</span>';
+											}
+										?>
                                     </p>
                                     <div class="grid_1 simpleCart_shelfItem">
 
@@ -120,29 +132,21 @@
                                                 </h6>
                                             </span>
                                         </div> 
+										<?php 
+											if($row['prod_quantity'] > 0){
+												?>
+												<div class="item_add">
+													<span class="item_price">
+														<a href="details.php?id=<?= $row['id'] ?>" class="btn btn-outline btn-success" >add to cart</a>
+													</span>
+												</div>
+												<?php
+												
+											}else{
+												echo '<div style="padding-top: 14px;padding-bottom: 17px;"><span class="label label-danger" style="padd">Out of Stock</span></div>';
+											}
+										?>
                                         
-                                        <form action="addtocart.php" method="POST">
-                                        <input type="hidden" name="product_id" value="<?= $row['id'] ?>">
-                                        <input type="hidden" name="type" value="add">
-                                        <input type="hidden" name="return_url" value="<?= $current_url ?>">
-                                        
-                                        <div class="item_add">
-                                            <div class="bootstrap-filestyle input-group">
-                                                <input type="number" name="product_qty" id="product_qty" class="form-control" value="1"> 
-                                                    <span class="group-span-filestyle input-group-btn" tabindex="0">
-                                                        <button type="submit" class="btn btn-outline btn-success"><i class="ti-shopping-cart checkout-icon"></i></button>
-                                                    </span>
-                                            </div>
-                                            <!-- <span class="item_price">
-                                                <input type="number" name="product_qty" id="product_qty" class="form-control" value="1"  style="width:50%;margin: 0 auto;">
-                                            </span> -->
-                                        </div>
-                                        <!--<div class="item_add">
-                                            <span class="item_price">
-                                                <input type="submit" class="btn btn-outline btn-success" value="add to cart">
-                                            </span>
-                                        </div> -->
-                                        </form>
                                     </div>
                                 </div>
                             </div>
