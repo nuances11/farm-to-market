@@ -1,33 +1,55 @@
 $(document).ready(function() {
-	
-	$('.update-item').click(function(){
-		var targetId = $(this).data('id');
-		$('span[data-id=' + targetId + ']').addClass('hidden');
-		$('div[data-id=' + targetId + ']').removeClass('hidden');
-		
-		console.log(targetId);
-		/* $('#prod_val').addClass('hidden');
-		$('.update-form').removeClass('hidden'); */
-	})
+
+    $('#place-orders').click(function() {
+        $.ajax({
+            type: 'POST',
+            url: 'transact.php',
+            dataType: 'json',
+            encode: true
+        }).done(function(data) {
+            if (data.success) {
+                swal({
+                    title: 'Transaction Successful',
+                    type: 'success',
+                    html: 'Thank you for ordering, please wait for 2-5 days. <br>Or click this ' +
+                        '<a href="invoice.php?id=' + data.trans_id + '">link</a> to view your invoice' +
+                        '<br><small>After 10 seconds it will redirect to your dashboard.</small>',
+                    showCloseButton: false,
+                    showCancelButton: false,
+                    focusConfirm: false,
+                })
+                setTimeout(function() {
+                    window.location.href = "index.php";
+                }, 10000);
+            }
+        })
+    })
+
+    $('.update-item').click(function() {
+        var targetId = $(this).data('id');
+        $('span[data-id=' + targetId + ']').addClass('hidden');
+        $('div[data-id=' + targetId + ']').removeClass('hidden');
+        console.log(targetId);
+    })
 
 
-	$('#item-minus').click(function(){
-		var qty = parseInt($('#product_qty').val());
-		var total_qty = 0;
-		if(qty > 1){
-			total_qty = qty - 1;
-			$('#product_qty').val(total_qty);
-			console.log(total_qty);
-		}
-		
-	})
-	$('#item-plus').click(function(){
-		var qty = parseInt($('#product_qty').val());
-		var total_qty = 0;
-		total_qty = qty + 1;
-		$('#product_qty').val(total_qty);
-		console.log(total_qty);
-	})
+    $('#item-minus').click(function() {
+        var qty = parseInt($('#product_qty').val());
+        var total_qty = 0;
+        if (qty > 1) {
+            total_qty = qty - 1;
+            $('#product_qty').val(total_qty);
+            console.log(total_qty);
+        }
+
+    })
+    $('#item-plus').click(function() {
+        var qty = parseInt($('#product_qty').val());
+        var total_qty = 0;
+        total_qty = qty + 1;
+        $('#product_qty').val(total_qty);
+        console.log(total_qty);
+    })
 
     $('#add-to-cart').submit(function(event) {
         var cart = $('#add-to-cart');

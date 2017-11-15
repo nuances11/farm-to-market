@@ -36,7 +36,7 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th class="center">#</th>
+                                <th class="center">Trans #</th>
                                 <th>Product Name</th>
                                 <th>SKU</th>
                                 <th class="text-center">Quantity</th>
@@ -52,41 +52,30 @@
                                 $total_quantity = 0;
                                 $vat = 0;
                                 $total = 0;
-                                if(isset($_SESSION["cart_item"])){
-                                    foreach ($_SESSION["cart_item"] as $item){
-                                        $sql ="SELECT * FROM tbl_products WHERE id = '".$item['id']."'";
-                                        $result = $conn->query($sql);
-                                        if($result->num_rows > 0){
-                                            while($row = $result->fetch_assoc()){
-                                                $total_price = ($item["price"]*$item["quantity"]);
-                                                $grand_total += $total_price;
-                                                $total_quantity += $item["quantity"];
-                                                $vat = $grand_total * 0.12;
-                                                $total = $grand_total + $vat;
+                                $sql = "SELECT * FROM tbl_trans_per_product WHERE trans_id = '".$_GET['id']."'";
+                                $result = $conn->query($sql);
+                                if ($result->num_rows > 0) {
+                                    while ($row = $result->fetch_assoc()) {
+                                        $grand_total += $row['prod_total_price'];
                                                 ?>
                                                 <tr>
                                                     <td>
-                                                        <?= $i ?>
+                                                        <?= $row['trans_id'] ?>
                                                     </td>
                                                     <td><?= $row['prod_name'] ?></td>
                                                     <td>
                                                         <span class="label label-success"><?= $row['prod_sku'] ?></span>
                                                     </td>
-                                                    <td class="text-center"><?= $item['quantity'] ?></td>
-                                                    <td class="text-center"><?= number_format($item["price"],2) ?></td>
-                                                    <td class="text-center"><?= number_format($total_price,2) ?></td>
+                                                    <td class="text-center"><?= $row['prod_total_qty'] ?></td>
+                                                    <td class="text-center"><?= number_format($row['prod_unit_price'],2) ?></td>
+                                                    <td class="text-center"><?= number_format($row['prod_total_price'],2) ?></td>
                                                 </tr>
                                                 <?php
                                                 $i++;
-									}
+                                    }
 								}else{
 									echo 'no product to display';
 								}
-							}
-							
-						}else{
-							echo 'no product to display';
-						}
 					?>
                         </tbody>
                     </table>
@@ -100,7 +89,7 @@
                     <div class="col-md-4 col-md-offset-4">
                         <table class="table">
                             <tbody>
-                                <tr>
+                                <!-- <tr>
                                     <td class="left">
                                         <strong>Subtotal</strong>
                                     </td>
@@ -111,13 +100,13 @@
                                         <strong>VAT (12%)</strong>
                                     </td>
                                     <td class="text-right">P&nbsp;&nbsp;<?= number_format($vat,2) ?></td>
-                                </tr>
+                                </tr> -->
                                 <tr>
                                     <td class="left">
                                         <strong>Total</strong>
                                     </td>
                                     <td class="text-right">
-                                        <strong>P&nbsp;&nbsp;<?= number_format($total,2) ?></strong>
+                                        <strong>P&nbsp;&nbsp;<?= number_format($grand_total,2) ?></strong>
                                     </td>
                                 </tr>
                             </tbody>

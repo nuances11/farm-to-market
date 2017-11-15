@@ -146,7 +146,7 @@
 						<td class="text-right"><b><?= $total_quantity ?></b></td>
 						<td>&nbsp;</td>
 						<td class="text-center"><b>P&nbsp;&nbsp;<?= number_format($total_price,2) ?></b></td>
-						<td class="text-center"><a href="invoice.php" class="btn btn-success">Place Order(s)</a></td>
+						<td class="text-center"><a href="#" class="btn btn-success" id="place-orders">Place Order(s)</a></td>
 					</tr>
                         
                     </tbody>

@@ -61,7 +61,7 @@
                     <div class="det">
                         <div class="single_left">
                             <div class="grid images_3_of_2">
-                                <div class="flexslider">
+                                <div class="flexslider">   
                                     <img
                                         <?php 
                                             if ($row['prod_image']) {
