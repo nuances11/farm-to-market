@@ -39,7 +39,7 @@ if (!empty($errors)) {
     $data['success'] = false;
     $data['errors'] = $errors;
 } else {
-
+    $id = $_POST['prod_id'];
     $name = $_POST['productName'];
     $category = $_POST['productCategory'];
     $subcategory = $_POST['productSubCategory'];
@@ -52,13 +52,16 @@ if (!empty($errors)) {
     $date = date("Y-m-d h:i:sa");
     $farmer = $_SESSION['id'];
 
-    $sql = "INSERT INTO tbl_products VALUES (NULL, '".$name."', '".$category."', '".$subcategory."', '".$description."', '".$sku."', '".$price."', '".$quantity."', '".$minquantity."', '".$status."', '".$date."', '".$date."', '', '".$farmer."')";
+    $sql = "UPDATE `tbl_products` SET `prod_name`='".$name."',`prod_category`='".$category."',`prod_subcategory`='".$subcategory."',`prod_description`='".$description."',`prod_sku`='".$sku."',`prod_price`='".$price."',`prod_quantity`='".$quantity."',`prod_minquantity`='".$minquantity."',`prod_status`='".$status."',`timestamp_update`='".$date."' WHERE id = '".$id."'";
         if ($conn->query($sql) === TRUE) {
             $data['success'] = true;
             $data['message'] = 'Success!';
         } else {
             $data['success'] = false;
         }
+
+    $data['success'] = true;
+    $data['message'] = 'Success!';
 }
 
 echo json_encode($data);

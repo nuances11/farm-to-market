@@ -8,8 +8,8 @@ include_once '../config/constants.php';
 
     if ($user == 'Farmer') {
       header('Location: ' . BASE_URL . '/farmer');
-    }elseif($user == 'Admin') {
-      header('Location: ' . BASE_URL . '/admin');
+    }elseif($user == 'Owner') {
+      header('Location: ' . BASE_URL . '/owner');
     }
   }
   ?>
@@ -149,17 +149,17 @@ include_once '../config/constants.php';
                     <a href="index.php">
                         <i class="ti-home"></i> Dashboard</a>
                 </li>
-                <li class="panel">
+                <!-- <li class="panel">
                     <a role="button" data-toggle="collapse" data-parent=".navigation" href="#collapse2" aria-expanded="false" aria-controls="collapse2"
                         class="collapsed">
-                        <i class="ti-shopping-cart"></i> E-commerce</a>
+                        <i class="ti-user"></i> Users</a>
                     <ul id="collapse2" class="list-unstyled collapse">
                         <!-- <li><a href="add-product.php">Add Product</a></li> -->
-                        <li>
-                            <a href="products.php">Product list</a>
+                     <!--   <li>
+                            <a href="user.php">User List</a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
         </aside>
         <!-- Main Sidebar end-->

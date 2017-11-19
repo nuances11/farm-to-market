@@ -1,3 +1,19 @@
+
+<?php
+session_start();
+if (isset($_SESSION['user_type'])) {
+    $user = $_SESSION['user_type'];
+
+    if ($user == 'Farmer') {
+        header("Location: farmer/index.php");
+    }elseif ($user == 'Owner') {
+        header("Location: owner/index.php");
+    }elseif ($user == 'Admin') {
+        header("Location: admin/index.php");
+    }
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

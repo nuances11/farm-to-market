@@ -43,6 +43,9 @@ $(document).ready(function() {
                 if (data.user == 'Owner') {
                     window.location.href = "owner/index.php";
                 }
+                if (data.user == 'Admin') {
+                    window.location.href = "admin/index.php";
+                }
             }
         })
         event.preventDefault();

@@ -20,6 +20,17 @@
                 <h3 class="widget-title">Product List</h3>
             </div>
             <div class="widget-body">
+            <?php
+                if (isset($_GET['action'])) {
+                    $action = $_GET['action'];
+
+                    if ($action == 'success') {
+                        ?>
+                        <div class="alert alert-success">Product Deleted Successfully!</div>
+                        <?php
+                    }
+                }
+            ?>
                 <form>
                     <div class="row">
                         <div class="col-md-4">
@@ -93,7 +104,7 @@
                                         <?php 
                                             if ($row['prod_image']) {
                                                 ?>
-                                                    src = "<?= $row['prod_image']?>"
+                                                    src = "<?= BASE_URL ?>build/images/products/<?= $row['prod_image']?>"
                                                 <?php
                                             }else {
                                                 ?>
@@ -126,12 +137,12 @@
                                         <!-- <button type="button" class="btn btn-outline btn-primary">
                                             <i class="ti-eye"></i>
                                         </button> -->
-                                        <button type="button" class="btn btn-outline btn-success">
+                                        <a href="edit-product.php?id=<?= $row['id'] ?>" class="btn btn-outline btn-success">
                                             <i class="ti-pencil"></i>
-                                        </button>
-                                        <button type="button" class="btn btn-outline btn-danger">
+                                        </a>
+                                        <a href="<?= BASE_URL ?>process/delete-product.php?id=<?= $row['id'] ?>" class="btn btn-outline btn-danger">
                                             <i class="ti-trash"></i>
-                                        </button>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>

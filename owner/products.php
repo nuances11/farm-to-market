@@ -91,8 +91,9 @@
                             <div class="col-sm-3 col-md-3 col-xs-12 grid1_of_4" style="margin-bottom:5px;margin-top:5px;">
                                 <div class="content_box">
                                     <a href="details.php?id=<?= $row['id'] ?>">
-                                        <img <?php if ($row[ 'prod_image']) { ?> src = "
-                                        <?= $row['prod_image']?>"
+                                        <img <?php if ($row[ 'prod_image']) { 
+                                            ?> 
+                                            src = "<?= BASE_URL ?>build/images/products/<?= $row['prod_image']?>"
                                             <?php
                                                         }else {
                                                             ?>

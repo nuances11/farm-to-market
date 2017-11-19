@@ -66,7 +66,7 @@
                                         <?php 
                                             if ($row['prod_image']) {
                                                 ?>
-                                                    src = "<?= $row['prod_image']?>"
+                                                    src = "<?= BASE_URL ?>build/images/products/<?= $row['prod_image']?>"
                                                 <?php
                                             }else {
                                                 ?>
@@ -120,7 +120,7 @@
 														  <span class="input-group-btn">
 															<button class="btn btn-success" id="item-minus" type="button"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
 														  </span>
-														  <input type="text" class="form-control"  style="text-align:center" name="product_qty" id="product_qty" aria-label="product_qty" value="1">
+														  <input type="text" class="form-control" data-limit="<?= $row['prod_quantity'] ?>" style="text-align:center" name="product_qty" id="product_qty" aria-label="product_qty" value="1">
 														  <span class="input-group-btn">
 															<button class="btn btn-success" id="item-plus" type="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
 														  </span>

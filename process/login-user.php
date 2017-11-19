@@ -28,7 +28,7 @@ $data           = array();      // array to pass back data
                     $_SESSION['fullname'] = $row['first_name'] . ' ' . $row['middle_name'] . ' ' . $row['last_name'];
                     $_SESSION['user_type'] = $row['user_type'];
                     $_SESSION['email'] = $row['email'];
-
+ 
                     if ($row['user_type'] == 'Farmer') {
                         $data['user'] = 'Farmer';
                         //header("Location: " . BASE_URL . "/farmer/index.php");
@@ -36,6 +36,11 @@ $data           = array();      // array to pass back data
 
                     if ($row['user_type'] == 'Owner') {
                         $data['user'] = 'Owner';
+                        //header("Location: " . BASE_URL . "/owner/index.php");
+                    }
+
+                    if ($row['user_type'] == 'Admin') {
+                        $data['user'] = 'Admin';
                         //header("Location: " . BASE_URL . "/owner/index.php");
                     }
                 

@@ -98,16 +98,6 @@
                     ?>
                     </div>
                 </div>
-                <div class="widget clear">
-                    <div class="widget-heading">
-                        <h3 class="widget-title">Biography</h3>
-                    </div>
-                    <div class="widget-body">
-                        <p>I am an Java, Android and Python software developer and teacher with 5 years of development experience!
-                            Whats more I reveal all my knowledge and secrets in my courses!</p>
-                        <p>I've been using Java since all the way back in 2006 !</p>
-                    </div>
-                </div>
             </div>
             <div class="col-md-9">
                 <div class="widget">

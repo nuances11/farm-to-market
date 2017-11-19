@@ -23,7 +23,7 @@
                 </button> -->
             </div>
         </div>
-        
+
         <div class="err col-sm-12" style="padding-top:5px;">
             <!-- Error Handler -->
         </div>
@@ -35,9 +35,6 @@
                     </li>
                     <li role="presentation">
                         <a href="#data" aria-controls="data" role="tab" data-toggle="tab">Data</a>
-                    </li>
-                    <li role="presentation">
-                        <a href="#image" aria-controls="image" role="tab" data-toggle="tab">Image</a>
                     </li>
                 </ul>
                 <div class="tab-content">
@@ -53,7 +50,7 @@
                             <div class="col-sm-9 input-productcategory">
                                 <select class="form-control" name="productCategory" id="productCategory">
                                     <option value="">Please select...</option>
-                                    <option value="Category 1">Sub-category 1</option>
+                                    <option value="Category 1">Category 1</option>
                                 </select>
                             </div>
                         </div>
@@ -62,7 +59,7 @@
                             <div class="col-sm-9 input-productsubcategory">
                                 <select class="form-control" name="productSubCategory" id="productSubCategory">
                                     <option value="">Please select...</option>
-                                    <option value="Sub-category 1">Category 1</option>
+                                    <option value="Sub-category 1">Sub-category 1</option>
                                 </select>
                             </div>
                         </div>
@@ -109,27 +106,10 @@
                             </div>
                         </div>
                     </div>
-                    </form>
-                    <div id="image" role="tabpanel" class="tab-pane">
-                        <div class="container">
-                            <div class="row">
-                                <div class="form-group">
-                                <label for="productImage" class="col-sm-3 control-label">File input</label>
-                                <div class="col-sm-9">
-                                    <input type="file" name="file3">
-                                </div>
-                                </div>
-                                <div class="form-group">
-                                <label for="productImage" class="col-sm-3 control-label"></label>
-                                <div class="col-sm-9">
-                                    <input type="submit" class="btn btn-primary" value="Upload Image" id="upload">
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            
+            </form>
+
+            </div>
+
         </div>
     </div>
 </div>

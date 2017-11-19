@@ -66,7 +66,10 @@
                         <div class="form-group">
                             <label for="ddlCountryHor" class="col-sm-2 control-label">Birthday</label>
                             <?php
-                            list($month, $day, $year) = explode('-', $user['birthday']);
+                            if ($user['birthday']) {
+                                list($month, $day, $year) = explode('-', $user['birthday']);
+                            }
+                            
                         ?>
                                 <div class="col-sm-2">
                                     <select id="dob_month" name="dob_month" class="form-control">

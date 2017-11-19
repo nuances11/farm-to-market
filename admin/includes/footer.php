@@ -28,6 +28,7 @@
     <script type="text/javascript" src="<?= BASE_URL ?>assets/jszip/dist/jszip.min.js"></script>
     <script type="text/javascript" src="<?= BASE_URL ?>assets/pdfmake/build/pdfmake.min.js"></script>
     <script type="text/javascript" src="<?= BASE_URL ?>assets/pdfmake/build/vfs_fonts.js"></script>
+    <script type="text/javascript" src="<?= BASE_URL ?>assets/datatables.net-buttons/js/buttons.colVis.min.js"></script>
     <script type="text/javascript" src="<?= BASE_URL ?>assets/datatables.net-buttons/js/buttons.print.min.js"></script>
     <script type="text/javascript" src="<?= BASE_URL ?>assets/datatables.net-buttons/js/buttons.html5.min.js"></script>
     <script type="text/javascript" src="<?= BASE_URL ?>assets/datatables.net-colreorder/js/dataTables.colReorder.min.js"></script>
