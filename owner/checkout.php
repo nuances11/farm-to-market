@@ -146,7 +146,11 @@
 						<td class="text-right"><b><?= $total_quantity ?></b></td>
 						<td>&nbsp;</td>
 						<td class="text-center"><b>P&nbsp;&nbsp;<?= number_format($total_price,2) ?></b></td>
+<<<<<<< HEAD
 						<td class="text-center"><a href="#"  id="place-orders" class="btn btn-success">Place Order(s)</a></td>
+=======
+						<td class="text-center"><a href="#" class="btn btn-success" id="place-orders">Place Order(s)</a></td>
+>>>>>>> caaac1226b2af203f49e92069d6367b95fa9c402
 					</tr>
                         
                     </tbody>
