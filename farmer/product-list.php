@@ -31,48 +31,27 @@
                     }
                 }
             ?>
-                <form>
+                <!-- <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="GET">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label for="txtProductName">Product Name</label>
-                                <input id="txtProductName" type="text" class="form-control">
+                                <input id="filter" placeholder="Search products by Name, SKU, and Price" required name="filter" type="text" class="form-control">
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="txtPrice">Price</label>
-                                <input id="txtPrice" type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="ddlStatus">Status</label>
-                                <select id="ddlStatus" class="form-control">
-                                    <option value="">Choose</option>
-                                    <option value="1">Enabled</option>
-                                    <option value="0">Disabled</option>
-                                </select>
-                            </div>
+                            <button type="submit" class="mb-15 btn btn-success">Filter</button>
+                            <?php
+                                if (isset($_GET['filter'])) {
+                                    ?>
+                                        <a href="product-list.php" role="button" class="mb-15 btn btn-primary">Clear Filter</a>
+                                    <?php
+                                }
+                            ?>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="txtModel">Model</label>
-                                <input id="txtModel" type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="txtPrice">Quantity</label>
-                                <input id="txtQuantity" type="text" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                    <button type="submit" class="mb-15 btn btn-raised btn-success">Filter</button>
-                </form>
-                <table id="product-list" style="width: 100%" class="table table-hover dt-responsive nowrap">
+                    
+                </form> -->
+                <table id="example-7" style="width: 100%" class="table table-hover dt-responsive nowrap">
                     <thead>
                         <tr>
                             <th class="text-center">
@@ -90,66 +69,132 @@
                     <tbody>
 
                         <?php
-                        $sql = "SELECT * FROM tbl_products";
-                        $result = $conn->query($sql);
-                        if ($result->num_rows > 0) {
-                            while ($row = $result->fetch_assoc()) {
-                                ?>
-                            <tr>
-                                <td class="text-center">
-                                &nbsp;
-                                </td>
-                                <td class="text-center">
-                                    <img
-                                        <?php 
-                                            if ($row['prod_image']) {
+                        if (isset($_GET['filter'])) {
+                            $filter = trim($_GET['filter']);
+
+                            $sql = "SELECT * FROM tbl_products WHERE prod_name LIKE '%" . $filter .  "%' OR prod_category LIKE '%" . $filter .  "%' OR prod_subcategory LIKE '%" . $filter .  "%' OR prod_sku LIKE '%" . $filter .  "%'";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    ?>
+                                <tr>
+                                    <td class="text-center">
+                                    &nbsp;
+                                    </td>
+                                    <td class="text-center">
+                                        <img
+                                            <?php 
+                                                if ($row['prod_image']) {
+                                                    ?>
+                                                        src = "<?= BASE_URL ?>build/images/products/<?= $row['prod_image']?>"
+                                                    <?php
+                                                }else {
+                                                    ?>
+                                                    src="<?= BASE_URL ?>build/images/no-image.jpg"
+                                                    <?php
+                                                }
+                                            ?>
+                                         width="50" alt="" class="img-thumbnail img-responsive">
+                                    </td>
+                                    <td><?= $row['prod_name'] ?></td>
+                                    <td><?= $row['prod_sku'] ?></td>
+                                    <td class="text-right">P <?= number_format($row['prod_price'],2) ?>/<strong>kg</strong></td> 
+                                    <td class="text-right"><?= $row['prod_quantity'] ?></td>
+                                    <td>
+                                        <?php
+                                            if ($row['prod_status'] == '1') {
                                                 ?>
-                                                    src = "<?= BASE_URL ?>build/images/products/<?= $row['prod_image']?>"
+                                                    <span class="label label-success">Enabled</span>
                                                 <?php
-                                            }else {
+                                            }else if ($row['prod_status'] == '0') {
                                                 ?>
-                                                src="<?= BASE_URL ?>build/images/no-image.jpg"
+                                                    <span class="label label-warning">Disabled</span>
                                                 <?php
                                             }
                                         ?>
-                                     width="50" alt="" class="img-thumbnail img-responsive">
-                                </td>
-                                <td><?= $row['prod_name'] ?></td>
-                                <td><?= $row['prod_sku'] ?></td>
-                                <td class="text-right">P <?= number_format($row['prod_price'],2) ?></td>
-                                <td class="text-right"><?= $row['prod_quantity'] ?></td>
-                                <td>
-                                    <?php
-                                        if ($row['prod_status'] == '1') {
-                                            ?>
-                                                <span class="label label-success">Enabled</span>
-                                            <?php
-                                        }else if ($row['prod_status'] == '0') {
-                                            ?>
-                                                <span class="label label-warning">Disabled</span>
-                                            <?php
-                                        }
-                                    ?>
-                                    
-                                </td>
-                                <td class="text-center">
-                                    <div role="group" aria-label="Basic example" class="btn-group btn-group-sm">
-                                        <!-- <button type="button" class="btn btn-outline btn-primary">
-                                            <i class="ti-eye"></i>
-                                        </button> -->
-                                        <a href="edit-product.php?id=<?= $row['id'] ?>" class="btn btn-outline btn-success">
-                                            <i class="ti-pencil"></i>
-                                        </a>
-                                        <a href="<?= BASE_URL ?>process/delete-product.php?id=<?= $row['id'] ?>" class="btn btn-outline btn-danger">
-                                            <i class="ti-trash"></i>
-                                        </a>
-                                    </div>
-                                </td>
-                            </tr>
-                            <?php
+                                        
+                                    </td>
+                                    <td class="text-center">
+                                        <div role="group" aria-label="Basic example" class="btn-group btn-group-sm">
+                                            <!-- <button type="button" class="btn btn-outline btn-primary">
+                                                <i class="ti-eye"></i>
+                                            </button> -->
+                                            <a href="edit-product.php?id=<?= $row['id'] ?>" class="btn btn-outline btn-success">
+                                                <i class="ti-pencil"></i>
+                                            </a>
+                                            <a href="<?= BASE_URL ?>process/delete-product.php?id=<?= $row['id'] ?>" class="btn btn-outline btn-danger">
+                                                <i class="ti-trash"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <?php
+                                }
                             }
+
+                        }else{
+                            $sql = "SELECT * FROM tbl_products";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    ?>
+                                <tr>
+                                    <td class="text-center">
+                                    &nbsp;
+                                    </td>
+                                    <td class="text-center">
+                                        <img
+                                            <?php 
+                                                if ($row['prod_image']) {
+                                                    ?>
+                                                        src = "<?= BASE_URL ?>build/images/products/<?= $row['prod_image']?>"
+                                                    <?php
+                                                }else {
+                                                    ?>
+                                                    src="<?= BASE_URL ?>build/images/no-image.jpg"
+                                                    <?php
+                                                }
+                                            ?>
+                                         width="50" alt="" class="img-thumbnail img-responsive">
+                                    </td>
+                                    <td><?= $row['prod_name'] ?></td>
+                                    <td><?= $row['prod_sku'] ?></td>
+                                    <td class="text-right">P <?= number_format($row['prod_price'],2) ?>/<strong style="color:#17A88B">kg</strong></td>
+                                    <td class="text-right"><?= $row['prod_quantity'] ?></td>
+                                    <td>
+                                        <?php
+                                            if ($row['prod_status'] == '1') {
+                                                ?>
+                                                    <span class="label label-success">Enabled</span>
+                                                <?php
+                                            }else if ($row['prod_status'] == '0') {
+                                                ?>
+                                                    <span class="label label-warning">Disabled</span>
+                                                <?php
+                                            }
+                                        ?>
+                                        
+                                    </td>
+                                    <td class="text-center">
+                                        <div role="group" aria-label="Basic example" class="btn-group btn-group-sm">
+                                            <!-- <button type="button" class="btn btn-outline btn-primary">
+                                                <i class="ti-eye"></i>
+                                            </button> -->
+                                            <a href="edit-product.php?id=<?= $row['id'] ?>" class="btn btn-outline btn-success">
+                                                <i class="ti-pencil"></i>
+                                            </a>
+                                            <a href="<?= BASE_URL ?>process/delete-product.php?id=<?= $row['id'] ?>" class="btn btn-outline btn-danger">
+                                                <i class="ti-trash"></i>
+                                            </a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <?php
+                                }
+                            }
+                        
                         }
-                    ?>
+                        ?>
                     </tbody>
                 </table>
             </div>

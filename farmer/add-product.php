@@ -49,8 +49,18 @@
                             <label for="productCategory" class="col-sm-3 control-label">Category</label>
                             <div class="col-sm-9 input-productcategory">
                                 <select class="form-control" name="productCategory" id="productCategory">
-                                    <option value="">Please select...</option>
-                                    <option value="Category 1">Category 1</option>
+                                    <option value="">Please select...</option> 
+                                    <?php 
+                                        $sql = "SELECT * FROM tbl_category";
+                                        $result = $conn->query($sql);
+                                        if ($result->num_rows > 0) {
+                                            while ($row = $result->fetch_assoc()) {
+                                                ?>
+                                                    <option value="<?= $row['id'] ?>"><?= $row['category_name'] ?></option>
+                                                <?php
+                                            }
+                                        }
+                                    ?>
                                 </select>
                             </div>
                         </div>
@@ -58,8 +68,6 @@
                             <label for="productSubCategory" class="col-sm-3 control-label">Sub-category</label>
                             <div class="col-sm-9 input-productsubcategory">
                                 <select class="form-control" name="productSubCategory" id="productSubCategory">
-                                    <option value="">Please select...</option>
-                                    <option value="Sub-category 1">Sub-category 1</option>
                                 </select>
                             </div>
                         </div>
@@ -83,6 +91,17 @@
                                 <input id="productPrice" name="productPrice" type="number" class="form-control">
                             </div>
                         </div>
+                        <!-- <div class="form-group">
+                            <label for="productUnit" class="col-sm-3 control-label">Unit</label>
+                            <div class="col-sm-9 input-productunit">
+                                <selectid="productUnit" name="productUnit" class="form-control">
+                                        <option value="">Choose Unit</option>
+                                        <option value="Kilo">Kilo</option>
+                                        <option value="Pc">Pc</option>
+                                        <option value="Kilo">Kilo</option>
+                                </select>
+                            </div>
+                        </div> -->
                         <div class="form-group">
                             <label for="productQuantity" class="col-sm-3 control-label">Quantity</label>
                             <div class="col-sm-9 input-productquantity">

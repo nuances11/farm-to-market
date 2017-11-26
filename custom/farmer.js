@@ -1,5 +1,20 @@
 $(document).ready(function() {
 
+
+    $('#productCategory').change(function(e) {
+        var subcategory = document.getElementById("productSubCategory");
+        var category = $(this).val();
+        var response = [];
+        var option;
+        $.getJSON("../process/check-subcategory.php?id=" + category, function(jsonData) {
+            for (var x = 0; x < jsonData.length; x++) {
+                option += '<option value=' + jsonData[x].sub_cat_id + '>' + jsonData[x].sub_cat_name + '</option>';
+            }
+            document.getElementById("productSubCategory").innerHTML = option;
+        });
+
+    });
+
     $('#change-pass').click(function(event) {
         var form = $('#change-pass-form');
 
@@ -173,6 +188,10 @@ $(document).ready(function() {
                 if (data.errors.price) {
                     $('.input-productprice').addClass('has-error'); // add the error class to show red input
                     $('.input-productprice').append('<div class="help-block">' + data.errors.price + '</div>'); // add the actual error message under our input
+                }
+                if (data.errors.unit) {
+                    $('.input-productunit').addClass('has-error'); // add the error class to show red input
+                    $('.input-productunit').append('<div class="help-block">' + data.errors.unit + '</div>'); // add the actual error message under our input
                 }
                 if (data.errors.quantity) {
                     $('.input-productquantity').addClass('has-error'); // add the error class to show red input

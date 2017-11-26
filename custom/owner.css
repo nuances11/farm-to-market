@@ -709,3 +709,12 @@ div.shadow {
     -webkit-transform: rotate(135deg);
     transform: rotate(135deg);
 }
+
+.farmer-name {
+    font-size: .7em;
+    font-weight: 600;
+}
+
+.women h4 {
+    color: #17A88B !important;
+}

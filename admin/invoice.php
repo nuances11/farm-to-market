@@ -53,6 +53,11 @@
                                     ?>
                                 </ul>
                             </div>
+                            <div class="col-sm-4">
+                                <button type="button" class="btn btn-raised btn-success" data-id="<?= $_GET['id'] ?>" id="order-approved"> Approve</button>
+                                <button type="button" class="btn btn-raised btn-danger" data-id="<?= $_GET['id'] ?>" id="order-decline"> Decline</button>
+                            <br>
+                            </div>
                         </div>
                         <?php
                     }

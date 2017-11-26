@@ -52,7 +52,7 @@ if (!empty($errors)) {
     $date = date("Y-m-d h:i:sa");
     $farmer = $_SESSION['id'];
 
-    $sql = "INSERT INTO tbl_products VALUES (NULL, '".$name."', '".$category."', '".$subcategory."', '".$description."', '".$sku."', '".$price."', '".$quantity."', '".$minquantity."', '".$status."', '".$date."', '".$date."', '', '".$farmer."')";
+    $sql = "INSERT INTO tbl_products VALUES (NULL, '".$name."', '".$category."', '".$subcategory."', '".$description."', '".$sku."', '".$price."', '".$quantity."', '".$minquantity."', '".$status."', '".$date."', '".$date."', '', '".$farmer."', '0')";
         if ($conn->query($sql) === TRUE) {
             $data['success'] = true;
             $data['message'] = 'Success!';

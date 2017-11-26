@@ -61,6 +61,7 @@
     <script type="text/javascript" src="<?= BASE_URL ?>build/js/second-layout/app.js"></script>
     <script type="text/javascript" src="<?= BASE_URL ?>build/js/second-layout/demo.js"></script>
     <script type="text/javascript" src="<?= BASE_URL ?>build/js/page-content/e-commerce/product-list.js"></script>
+    <script type="text/javascript" src="<?= BASE_URL ?>build/js/page-content/tables/data-tables.js"></script>
     <script type="text/javascript" src="<?= BASE_URL ?>custom/farmer.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.all.js"></script>
   </body>

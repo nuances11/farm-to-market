@@ -5,7 +5,7 @@ $data = array();
 
 if(isset($_SESSION["cart_session"])){ //if we have the session
 
-	$trans = "INSERT INTO tbl_transactions VALUES(NULL, NOW(), '".$_SESSION['id']."')";
+	$trans = "INSERT INTO tbl_transactions VALUES(NULL, NOW(), '".$_SESSION['id']."', '0')";
 	
 	if ($conn->query($trans) === TRUE) {
 

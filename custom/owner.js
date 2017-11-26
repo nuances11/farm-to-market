@@ -7,6 +7,7 @@ $(document).ready(function() {
             dataType: 'json',
             encode: true
         }).done(function(data) {
+            console.log(data.success);
             if (data.success) {
                 swal({
                     title: 'Transaction Successful',
@@ -25,7 +26,56 @@ $(document).ready(function() {
         })
     })
 
-<<<<<<< HEAD
+    function filterFarmer() {
+        var farmer = $('#farmerName').val();
+
+        if (farmer != '') {
+            var curUrl = window.location.href;
+            var newUrl = curUrl.substr(0, curUrl.indexOf("?"));
+            var filter = '?farmer=' + farmer;
+            window.location.href = newUrl + filter;
+        }
+    }
+
+    $('#farmerName').change(function(e) {
+        filterFarmer();
+    })
+
+    function filtercategory() {
+        var category = $('#productCategory').val();
+        var subcategory = $('#productSubCategory').val();
+
+        if (category != '' && subcategory != '') {
+            var curUrl = window.location.href;
+            var newUrl = curUrl.substr(0, curUrl.indexOf("?"));
+            var filter = '?category=' + category + '&subcategory=' + subcategory;
+            window.location.href = newUrl + filter;
+        }
+    }
+
+    $('#productCategory').change(function(e) {
+        var subcategory = document.getElementById("productSubCategory");
+        var category = $(this).val();
+        var response = [];
+        var option;
+        $.getJSON("../process/check-subcategory.php?id=" + category, function(jsonData) {
+            option += '<option value="">Please select</option>';
+            for (var x = 0; x < jsonData.length; x++) {
+                option += '<option value=' + jsonData[x].sub_cat_id + '>' + jsonData[x].sub_cat_name + '</option>';
+            }
+            document.getElementById("productSubCategory").innerHTML = option;
+        });
+
+
+    })
+
+    $('#productSubCategory').change(function(e) {
+        var subcategory = $(this).val();
+        filtercategory();
+
+    })
+
+
     $('#change-pass').click(function(event) {
         var form = $('#change-pass-form');
 
@@ -166,13 +216,6 @@ $(document).ready(function() {
         console.log(targetId);
         /* $('#prod_val').addClass('hidden');
         $('.update-form').removeClass('hidden'); */
-=======
-    $('.update-item').click(function() {
-        var targetId = $(this).data('id');
-        $('span[data-id=' + targetId + ']').addClass('hidden');
-        $('div[data-id=' + targetId + ']').removeClass('hidden');
-        console.log(targetId);
->>>>>>> caaac1226b2af203f49e92069d6367b95fa9c402
     })
 
 
@@ -189,7 +232,6 @@ $(document).ready(function() {
     $('#item-plus').click(function() {
         var qty = parseInt($('#product_qty').val());
         var total_qty = 0;
-<<<<<<< HEAD
         var limit = $('#product_qty').data('limit');
         console.log(limit);
         if (qty < limit) {
@@ -207,11 +249,6 @@ $(document).ready(function() {
             })
             return;
         }
-=======
-        total_qty = qty + 1;
-        $('#product_qty').val(total_qty);
-        console.log(total_qty);
->>>>>>> caaac1226b2af203f49e92069d6367b95fa9c402
     })
 
     $('#add-to-cart').submit(function(event) {

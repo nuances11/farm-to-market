@@ -61,17 +61,24 @@
                                 
                             </td>
                             <td class="text-center">
-                                <div role="group" aria-label="Basic example" class="btn-group btn-group-sm">
-                                    <!-- <button type="button" class="btn btn-outline btn-primary">
-                                        <i class="ti-eye"></i>
-                                    </button> -->
-                                    <a href="edit-user.php?id=<?= $row['id'] ?>" class="btn btn-outline btn-success">
-                                        <i class="ti-pencil"></i>
-                                    </a>
-                                    <a href="delete-user.php?id=<?= $row['id'] ?>" class="btn btn-outline btn-danger">
-                                        <i class="ti-trash"></i>
-                                    </a>
-                                </div>
+
+                                <?php
+                                    if($row['user_type'] == 'Admin'){
+                                        echo '';
+                                    }else{
+                                        ?>
+                                        <div role="group" aria-label="Basic example" class="btn-group btn-group-sm">
+                                            <!-- <button type="button" class="btn btn-outline btn-primary">
+                                                <i class="ti-eye"></i>
+                                            </button> -->
+                                            <a href="edit-user.php?id=<?= $row['id'] ?>" class="btn btn-outline btn-success">
+                                                <i class="ti-pencil"></i>
+                                            </a>
+                                        </div>
+                                        <?php
+                                    }
+                                ?>
+                                
                             </td>
                         </tr>
                         <?php

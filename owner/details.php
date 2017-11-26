@@ -46,7 +46,27 @@
         }
         ?>  
     </div>
+    
     <div class="page-content container-fluid">
+    <?php
+        if (isset($_SESSION['invalid'])) {
+           
+                ?>
+                <div class="alert alert-danger alert-dismissable">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Quantity must be less than or equal to the current product stock.</strong>
+                </div> 
+                <?php
+        }
+        if (isset($_SESSION['invalidq'])) {
+           ?>
+            <div class="alert alert-danger alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Invalid input on Quantity Field</strong>
+            </div>
+           <?php
+        }
+    ?>
         <div class="women_main">
             <!-- start content -->
 
@@ -74,20 +94,30 @@
                                                 <?php
                                             }
                                         ?>
-                                    class="img-responsive" alt="">
+                                    class="img-responsive" style="max-width: 700px;height: auto;width: 100%;" alt="">
                                 </div>
                             </div>
                             <div class="desc1 span_3_of_2">
                                 <h3><?= $row['prod_name'] ?></h3>
                                 <span class="code">SKU: <?= $row['prod_sku'] ?></span>
                                 <div class="price">
-                                    <span class="price-new">PHP <?= number_format($row['prod_price'],2) ?></span>
+                                    <span class="price-new">PHP <?= number_format($row['prod_price'],2) ?>/<strong>kg</strong></span>
                                     
                                     <br>
                                 </div>
                                 <p><?= $row['prod_description'] ?></p>
-                                <p><h5>Category: <span style="color:#17A88B;"><?= $row['prod_category'] ?></span></h5></p>
-                                <p><h5>Sub-category: <span style="color:#17A88B;"><?= $row['prod_subcategory'] ?></span></h5></p>
+                                <?php
+                                    $cat = 'SELECT * FROM tbl_category INNER JOIN tbl_sub_category ON tbl_category.id = tbl_sub_category.category_id';
+                                    $rescat = $conn->query($cat);
+                                    if ($rescat->num_rows > 0) {
+                                        $cat_info = $rescat->fetch_assoc();
+                                        ?>
+                                            <p><h5>Category: <span style="color:#17A88B;"><?= $cat_info['category_name'] ?></span></h5></p>
+                                            <p><h5>Sub-category: <span style="color:#17A88B;"><?= $cat_info['sub_category_name'] ?></span></h5></p>
+                                        <?php
+                                    }
+                                ?>
+                                
 								<p>
                                         Stocks: 
 										<?php 
@@ -170,6 +200,7 @@
                                     }
                                 ?>
                         </div>
+                        <a href="products.php" class="btn btn-success btn-outline">Back</a>
                     </div>
                     <?php
         }

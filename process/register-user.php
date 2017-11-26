@@ -92,7 +92,7 @@ $data           = array();      // array to pass back data
         $md5_hash = md5(time() + mt_rand(1, 99999999));
         $date = date("Y-m-d h:i:sa");
 
-        
+    
         $sql = "INSERT INTO tbl_user VALUES (NULL, '".$user."', '".$pass."', '".$email."', '".$user_type."', '".$fname."', '".$mname."', '".$lname."', '".$birthday."', '".$gender."', '".$contact."', '', '".$street."', '".$barangay."', '".$city."', '".$province."', '', '".$md5_hash."', '".$date."', '".$date."', '1')";
         if ($conn->query($sql) === TRUE) {
             $data['success'] = true;

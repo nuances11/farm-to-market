@@ -2,6 +2,7 @@
 session_start();
 include_once '../config/constants.php';
 include_once '../config/db.php';
+$data = array(); // array to pass back data
 $filename = basename($_FILES["product_img"]["name"]);
 $target_dir = "../build/images/products/";
 $target_file = $target_dir . basename($_FILES["product_img"]["name"]);
@@ -47,7 +48,12 @@ if ($uploadOk == 0) {
                 $update = "UPDATE tbl_products SET prod_image = '".$filename."' WHERE id = '".$_GET['id']."'";
                 
                 if ($conn->query($update) === TRUE) {
-                    echo "Record updated successfully";
+                    ?>
+                    <script>
+                        alert("Image Uploaded Successfully")    
+                        history.back();
+                    </script>
+                    <?php
                 }
         }
 

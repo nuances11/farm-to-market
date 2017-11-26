@@ -22,6 +22,7 @@ include_once '../config/constants.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AGRIPRENEUR</title>
+    <link rel="icon" href="<?= BASE_URL ?>build/images/icons/logo.ico">
     <!-- PACE-->
     <link rel="stylesheet" type="text/css" href="<?= BASE_URL ?>assets/PACE/themes/blue/pace-theme-flash.css">
     <script type="text/javascript" src="<?= BASE_URL ?>assets/PACE/pace.min.js"></script>
@@ -157,6 +158,9 @@ include_once '../config/constants.php';
                         <!-- <li><a href="add-product.php">Add Product</a></li> -->
                         <li>
                             <a href="products.php">Product list</a>
+                        </li>
+                        <li>
+                            <a href="order-list.php">Order List</a>
                         </li>
                     </ul>
                 </li>

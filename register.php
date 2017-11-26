@@ -10,8 +10,6 @@ if (isset($_SESSION['user_type'])) {
     }elseif ($user == 'Admin') {
         header("Location: admin/index.php");
     }
-}else {
-    header("Location: index.php");
 }
 
 ?>

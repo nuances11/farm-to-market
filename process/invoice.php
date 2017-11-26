@@ -43,10 +43,6 @@
                                             ?>
                                             <span class="label label-success">APPROVED</span>
                                             <?php
-                                        }elseif($user['status'] == '2'){
-                                            ?>
-                                            <span class="label label-danger">DECLINED</span>
-                                            <?php
                                         }else{
                                             echo '';
                                         }
