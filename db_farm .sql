@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2017 at 05:03 PM
+-- Generation Time: Nov 27, 2017 at 04:10 PM
 -- Server version: 10.1.19-MariaDB
 -- PHP Version: 5.6.28
 
@@ -19,6 +19,21 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_farm`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_category`
+--
+
+CREATE TABLE `tbl_category` (
+  `id` int(11) NOT NULL,
+  `category_name` varchar(255) NOT NULL,
+  `category_identifier` varchar(255) NOT NULL,
+  `category_status` int(11) NOT NULL,
+  `timestamp_created` varchar(255) NOT NULL,
+  `timestamp_update` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -40,7 +55,24 @@ CREATE TABLE `tbl_products` (
   `timestamp_create` varchar(255) NOT NULL,
   `timestamp_update` varchar(255) NOT NULL,
   `prod_image` varchar(255) NOT NULL,
-  `farmer_id` int(11) NOT NULL
+  `farmer_id` int(11) NOT NULL,
+  `featured` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_sub_category`
+--
+
+CREATE TABLE `tbl_sub_category` (
+  `id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `sub_category_name` varchar(255) NOT NULL,
+  `sub_category_identifier` varchar(255) NOT NULL,
+  `sub_category_status` int(11) NOT NULL,
+  `timestamp_update` varchar(255) NOT NULL,
+  `timestamp_created` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -52,7 +84,8 @@ CREATE TABLE `tbl_products` (
 CREATE TABLE `tbl_transactions` (
   `id` int(8) UNSIGNED ZEROFILL NOT NULL,
   `timestamp_created` varchar(255) NOT NULL,
-  `owner_id` int(11) NOT NULL
+  `owner_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -104,13 +137,32 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `tbl_user`
+--
+
+INSERT INTO `tbl_user` (`id`, `username`, `password`, `email`, `user_type`, `first_name`, `middle_name`, `last_name`, `birthday`, `gender`, `phone`, `picture`, `add_street`, `add_barangay`, `add_city`, `add_province`, `session_id`, `md5_hash`, `timestamp_created`, `timestamp_update`, `active`) VALUES
+(1, 'admin', '0192023a7bbd73250516f069df18b500', 'admin@admin.com', 'Admin', 'Admin', 'Sample', 'Admin', '', 'Male', '09191234567', '', 'Street', 'Barangay', 'City', 'Province', '', '', '', '', 1);
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `tbl_category`
+--
+ALTER TABLE `tbl_category`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `tbl_products`
 --
 ALTER TABLE `tbl_products`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `tbl_sub_category`
+--
+ALTER TABLE `tbl_sub_category`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -136,9 +188,19 @@ ALTER TABLE `tbl_user`
 --
 
 --
+-- AUTO_INCREMENT for table `tbl_category`
+--
+ALTER TABLE `tbl_category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `tbl_products`
 --
 ALTER TABLE `tbl_products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tbl_sub_category`
+--
+ALTER TABLE `tbl_sub_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_transactions`
@@ -154,7 +216,7 @@ ALTER TABLE `tbl_trans_per_product`
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

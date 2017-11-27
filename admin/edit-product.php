@@ -140,6 +140,16 @@
                                     </select>
                                 </div>
                             </div>
+							<div class="form-group">
+                                <label for="productFeatured" class="col-sm-3 control-label">Featured</label>
+                                <div class="col-sm-9 input-productfeature">
+                                    <select id="productFeatured" name="productFeatured" class="form-control">
+                                        <option value="">Choose</option>
+                                        <option value="1" <?php if ($prod['featured']=='1' ){echo 'selected';} ;?>>Yes</option>
+                                        <option value="0" <?php if ($prod['featured']=='0' ){echo 'selected';} ;?>>No</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
             </form>
             <div id="image" role="tabpanel" class="tab-pane">
@@ -150,7 +160,7 @@
                             <div class="form-group">
                                 <label for="productImage" class="col-sm-3 control-label">File input</label>
                                 <div class="col-sm-9">
-                                    <input type="file" name="product_img">
+                                    <input type="file" required name="product_img">
                                 </div>
                             </div>
                             <div class="form-group">

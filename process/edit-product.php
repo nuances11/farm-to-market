@@ -51,8 +51,13 @@ if (!empty($errors)) {
     $status = $_POST['productStatus'];
     $date = date("Y-m-d h:i:sa");
     $farmer = $_SESSION['id'];
+	if($_POST['productFeatured']){
+		$featured = $_POST['productFeatured'];
+	}else{
+		$featured = '0';
+	}
 
-    $sql = "UPDATE `tbl_products` SET `prod_name`='".$name."',`prod_category`='".$category."',`prod_subcategory`='".$subcategory."',`prod_description`='".$description."',`prod_sku`='".$sku."',`prod_price`='".$price."',`prod_quantity`='".$quantity."',`prod_minquantity`='".$minquantity."',`prod_status`='".$status."',`timestamp_update`='".$date."' WHERE id = '".$id."'";
+    $sql = "UPDATE `tbl_products` SET `prod_name`='".$name."',`prod_category`='".$category."',`prod_subcategory`='".$subcategory."',`prod_description`='".$description."',`prod_sku`='".$sku."',`prod_price`='".$price."',`prod_quantity`='".$quantity."',`prod_minquantity`='".$minquantity."',`prod_status`='".$status."',`timestamp_update`='".$date."', `featured` = '".$featured."' WHERE id = '".$id."'";
         if ($conn->query($sql) === TRUE) {
             $data['success'] = true;
             $data['message'] = 'Success!';

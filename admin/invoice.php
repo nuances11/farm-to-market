@@ -31,7 +31,7 @@
                             <div class="col-sm-4">
                                 <ul class="list-unstyled">
                                     <li>Invoice
-                                        <strong>#<?= str_pad($user['id'], 8, "0" , STR_PAD_LEFT)?></strong>
+                                        <strong>#<?= str_pad($_GET['id'], 8, "0" , STR_PAD_LEFT)?></strong>
                                     </li>
                                     <li><?= $user['timestamp_created']?></li>
                                     <?php
@@ -52,11 +52,6 @@
                                         }
                                     ?>
                                 </ul>
-                            </div>
-                            <div class="col-sm-4">
-                                <button type="button" class="btn btn-raised btn-success" data-id="<?= $_GET['id'] ?>" id="order-approved"> Approve</button>
-                                <button type="button" class="btn btn-raised btn-danger" data-id="<?= $_GET['id'] ?>" id="order-decline"> Decline</button>
-                            <br>
                             </div>
                         </div>
                         <?php
@@ -89,7 +84,8 @@
                                     while ($row = $result->fetch_assoc()) {
                                         $grand_total += $row['prod_total_price'];
                                                 ?>
-                                                <tr>
+                                                <tr> 
+												
                                                     <td>
                                                         <?= $row['trans_id'] ?>
                                                     </td>
@@ -101,7 +97,10 @@
                                                     <td class="text-center"><?= number_format($row['prod_unit_price'],2) ?></td>
                                                     <td class="text-center"><?= number_format($row['prod_total_price'],2) ?></td>
                                                 </tr>
-                                                <?php
+												<form id="order-info">
+													<input type="hidden" name="id" value="<?= $_GET['id'] ?>">
+												</form>
+                                                <?php  
                                                 $i++;
                                     }
 								}else{
